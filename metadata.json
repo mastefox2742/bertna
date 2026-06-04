@@ -1,0 +1,6 @@
+{
+  "name": "BERTNA48",
+  "description": "Agence d'exception et commerce d'élite de parfum, prêt-à-porter, bijoux et solutions technologiques.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
