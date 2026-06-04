@@ -9,8 +9,8 @@ interface NavbarProps {
 
 export default function Navbar({ currentTab, onTabChange, onOpenSchedule }: NavbarProps) {
   const tabs = [
-    { id: 'boutique', label: 'Boutique', icon: ShoppingBag },
     { id: 'agence', label: 'Agence', icon: Briefcase },
+    { id: 'boutique', label: 'Boutique', icon: ShoppingBag },
     { id: 'services', label: 'Services', icon: Sparkles },
     { id: 'contact', label: 'Contact', icon: MessageSquare },
   ];

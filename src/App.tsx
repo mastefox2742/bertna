@@ -10,7 +10,7 @@ import ServicesView from './components/ServicesView';
 import ContactView from './components/ContactView';
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<string>('boutique');
+  const [currentTab, setCurrentTab] = useState<string>('agence');
 
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
