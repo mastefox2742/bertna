@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – BERTNA48</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { gold: { 50:'#fdf8e8',100:'#faefc4',200:'#f5da84',300:'#eec043',400:'#D4AF37',500:'#c09b28',600:'#a07e1f' } },
+        fontFamily: { sans: ['"Plus Jakarta Sans"','system-ui','sans-serif'] }
+      }}
+    }
+  </script>
+  <style>
+    html{scroll-behavior:smooth}body{overflow-x:hidden}
+    .text-gold{background:linear-gradient(135deg,#c09b28,#D4AF37,#e8c96a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(255,255,255,.9);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+    .nav-link{position:relative;padding-bottom:2px}.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:#D4AF37;transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}.nav-link.active{color:#1e293b!important}
+    .btn-gold{background:linear-gradient(135deg,#D4AF37,#c09b28);box-shadow:0 6px 24px rgba(212,175,55,.3);position:relative;overflow:hidden}.btn-gold::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s}.btn-gold:hover::before{left:100%}.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(212,175,55,.4)}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}.reveal.on{opacity:1;transform:translateY(0)}
+    .hamburger span{display:block;width:24px;height:2px;background:#1e293b;border-radius:2px;transition:.3s}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    #mob{display:none}#mob.open{display:block}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.05) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+    .form-input{transition:border-color .3s,box-shadow .3s}.form-input:focus{outline:none;border-color:#D4AF37;box-shadow:0 0 0 3px rgba(212,175,55,.15)}
+    select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+    .channel-card{transition:all .3s}.channel-card:hover{transform:translateX(4px)}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+    .pulse{animation:pulse-dot 2s ease-in-out infinite}
+  </style>
+</head>
+<body class="font-sans bg-white text-slate-900 antialiased">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-[999] glass border-b border-slate-200/60">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-[68px] flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-xl border-2 border-gold-400 bg-gold-50 flex items-center justify-center shadow-sm"><span class="text-gold-500 font-extrabold text-xs tracking-widest">B48</span></div>
+      <span class="font-extrabold text-base tracking-wider text-slate-900 group-hover:text-gold-500 transition-colors">BERTNA48</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-7">
+      <li><a href="index.html"          class="nav-link text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">Accueil</a></li>
+      <li><a href="services.html"       class="nav-link text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">Services</a></li>
+      <li><a href="evenementiel.html"   class="nav-link text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">Événementiel</a></li>
+      <li><a href="boutique.html"       class="nav-link text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">Boutique</a></li>
+      <li><a href="contact.html" class="btn-gold inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-all"><i data-lucide="mail" class="w-3.5 h-3.5"></i>Contact</a></li>
+    </ul>
+    <button class="hamburger md:hidden flex flex-col gap-[5px] p-2 cursor-pointer" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+  <div id="mob" class="md:hidden border-t border-slate-100 bg-white/98">
+    <div class="px-6 py-5 flex flex-col gap-3">
+      <a href="index.html"        class="text-sm font-semibold text-slate-700 hover:text-gold-500 py-1 transition-colors">Accueil</a>
+      <a href="services.html"     class="text-sm font-semibold text-slate-700 hover:text-gold-500 py-1 transition-colors">Services</a>
+      <a href="evenementiel.html" class="text-sm font-semibold text-slate-700 hover:text-gold-500 py-1 transition-colors">Événementiel</a>
+      <a href="boutique.html"     class="text-sm font-semibold text-slate-700 hover:text-gold-500 py-1 transition-colors">Boutique</a>
+      <a href="contact.html"      class="btn-gold mt-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="relative pt-28 pb-16 bg-white overflow-hidden">
+  <div class="hero-grid"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center relative z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-200 bg-gold-50 text-gold-600 text-[11px] font-bold tracking-widest uppercase mb-5">
+      <span class="pulse w-2 h-2 rounded-full bg-gold-400 flex-shrink-0"></span>
+      Disponible 24 / 7
+    </div>
+    <h1 class="font-extrabold text-slate-900 mb-4" style="font-size:clamp(2.4rem,5vw,4rem);letter-spacing:-.02em">
+      Parlons de votre <span class="text-gold">Projet</span>
+    </h1>
+    <p class="text-slate-500 max-w-lg mx-auto leading-relaxed">
+      Une question, un projet, un devis ? Notre équipe répond sous <strong class="text-slate-700">24h</strong>, sans engagement.
+    </p>
+  </div>
+</div>
+
+<!-- MAIN CONTACT SECTION -->
+<section class="py-12 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-5 gap-10">
+
+      <!-- LEFT — Infos -->
+      <div class="lg:col-span-2 space-y-5 reveal">
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/242066446257" target="_blank" rel="noopener"
+           class="channel-card flex items-center gap-4 p-5 bg-white rounded-2xl border border-slate-100 hover:border-green-200 hover:bg-green-50 shadow-sm group">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-green-50 border border-green-200 group-hover:bg-green-100 transition-all">
+            <i data-lucide="message-circle" class="w-5 h-5 text-green-600"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-0.5">WhatsApp</div>
+            <div class="font-bold text-slate-900 truncate">+242 06 644 62 57</div>
+            <div class="text-xs text-slate-400 mt-0.5">Réponse en quelques minutes</div>
+          </div>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300 group-hover:text-green-500 flex-shrink-0 transition-colors"></i>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:bertnajh@gmail.com"
+           class="channel-card flex items-center gap-4 p-5 bg-white rounded-2xl border border-slate-100 hover:border-gold-200 hover:bg-gold-50 shadow-sm group">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-gold-50 border border-gold-200 group-hover:bg-gold-100 transition-all">
+            <i data-lucide="mail" class="w-5 h-5 text-gold-600"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-0.5">Email</div>
+            <div class="font-bold text-slate-900 truncate">bertnajh@gmail.com</div>
+            <div class="text-xs text-slate-400 mt-0.5">Réponse sous 24h garantie</div>
+          </div>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300 group-hover:text-gold-500 flex-shrink-0 transition-colors"></i>
+        </a>
+
+        <!-- Horaires -->
+        <div class="flex items-center gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-gold-50 border border-gold-200">
+            <i data-lucide="clock-4" class="w-5 h-5 text-gold-500"></i>
+          </div>
+          <div>
+            <div class="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-0.5">Disponibilité</div>
+            <div class="font-bold text-slate-900">7j/7 · 24h/24</div>
+            <div class="text-xs text-slate-400 mt-0.5">Toujours disponibles pour vous</div>
+          </div>
+        </div>
+
+        <!-- Garanties -->
+        <div class="p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
+          <div class="flex items-center gap-2 mb-4">
+            <i data-lucide="shield-check" class="w-4 h-4 text-gold-500"></i>
+            <span class="text-sm font-bold text-slate-800">Nos engagements</span>
+          </div>
+          <div class="space-y-2.5">
+            <div class="flex items-center gap-2.5 text-sm text-slate-600">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400 flex-shrink-0"></i>
+              Devis gratuit & sans engagement
+            </div>
+            <div class="flex items-center gap-2.5 text-sm text-slate-600">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400 flex-shrink-0"></i>
+              Réponse garantie sous 24h
+            </div>
+            <div class="flex items-center gap-2.5 text-sm text-slate-600">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400 flex-shrink-0"></i>
+              100% satisfaction client
+            </div>
+            <div class="flex items-center gap-2.5 text-sm text-slate-600">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400 flex-shrink-0"></i>
+              Accompagnement personnalisé
+            </div>
+          </div>
+        </div>
+
+        <!-- Services rapides -->
+        <div class="p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
+          <div class="flex items-center gap-2 mb-4">
+            <i data-lucide="layers" class="w-4 h-4 text-gold-500"></i>
+            <span class="text-sm font-bold text-slate-800">Nos services</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="services.html" class="flex items-center gap-2 text-xs text-slate-600 hover:text-gold-600 transition-colors py-1">
+              <i data-lucide="handshake" class="w-3.5 h-3.5 text-blue-400 flex-shrink-0"></i>Relation Publique
+            </a>
+            <a href="evenementiel.html" class="flex items-center gap-2 text-xs text-slate-600 hover:text-gold-600 transition-colors py-1">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-purple-400 flex-shrink-0"></i>Événementiel
+            </a>
+            <a href="services.html" class="flex items-center gap-2 text-xs text-slate-600 hover:text-gold-600 transition-colors py-1">
+              <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-400 flex-shrink-0"></i>Gestion Commerciale
+            </a>
+            <a href="boutique.html" class="flex items-center gap-2 text-xs text-slate-600 hover:text-gold-600 transition-colors py-1">
+              <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-gold-400 flex-shrink-0"></i>Boutique
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — Form -->
+      <div class="lg:col-span-3 reveal" style="transition-delay:.15s">
+        <div class="bg-white rounded-2xl border border-slate-100 p-8 shadow-xl shadow-slate-100">
+          <div class="mb-7">
+            <h2 class="font-extrabold text-slate-900 text-xl mb-1">Envoyer un message</h2>
+            <p class="text-sm text-slate-400">Remplissez le formulaire, nous vous recontactons rapidement.</p>
+          </div>
+
+          <form id="contact-form" onsubmit="handleSubmit(event)" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] font-bold tracking-widests uppercase text-slate-400 mb-2">Nom complet *</label>
+                <input type="text" placeholder="Jean Dupont" required
+                       class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-300 bg-slate-50 focus:bg-white">
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold tracking-widests uppercase text-slate-400 mb-2">Téléphone</label>
+                <input type="tel" placeholder="+242 06 XX XX XX"
+                       class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-300 bg-slate-50 focus:bg-white">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-bold tracking-widests uppercase text-slate-400 mb-2">Email *</label>
+              <input type="email" placeholder="votre@email.com" required
+                     class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-300 bg-slate-50 focus:bg-white">
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-bold tracking-widests uppercase text-slate-400 mb-2">Service souhaité</label>
+              <select class="form-input w-full px-4 py-3 pr-10 rounded-xl border border-slate-200 text-sm text-slate-700 bg-slate-50 focus:bg-white">
+                <option value="">Choisir un service...</option>
+                <option>Relation Publique</option>
+                <option>Événementiel — Mariage</option>
+                <option>Événementiel — Anniversaire</option>
+                <option>Événementiel — Gala / Soirée</option>
+                <option>Événementiel — Séminaire / Réunion</option>
+                <option>Événementiel — Autre</option>
+                <option>Gestion Commerciale</option>
+                <option>Gestion WhatsApp Business</option>
+                <option>Boutique / Commande</option>
+                <option>Autre</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-bold tracking-widests uppercase text-slate-400 mb-2">Budget estimé</label>
+              <select class="form-input w-full px-4 py-3 pr-10 rounded-xl border border-slate-200 text-sm text-slate-700 bg-slate-50 focus:bg-white">
+                <option value="">Sélectionner une fourchette...</option>
+                <option>Moins de 100 000 frs</option>
+                <option>100 000 – 300 000 frs</option>
+                <option>300 000 – 500 000 frs</option>
+                <option>Plus de 500 000 frs</option>
+                <option>À définir ensemble</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-bold tracking-widests uppercase text-slate-400 mb-2">Votre message *</label>
+              <textarea rows="4" placeholder="Décrivez votre projet, vos besoins, la date souhaitée..." required
+                        class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-300 bg-slate-50 focus:bg-white resize-none"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn"
+                    class="btn-gold w-full py-4 rounded-xl font-bold text-white text-sm tracking-wide transition-all hover:-translate-y-0.5">
+              <span id="btn-text" class="flex items-center justify-center gap-2">
+                <i data-lucide="send" class="w-4 h-4"></i>Envoyer le message
+              </span>
+            </button>
+
+            <!-- Success state (hidden) -->
+            <div id="success-msg" class="hidden rounded-xl bg-green-50 border border-green-200 p-4 text-center">
+              <div class="flex items-center justify-center gap-2 text-green-700 font-semibold text-sm">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                Message envoyé ! Nous vous recontactons sous 24h.
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Direct action cards -->
+        <div class="grid sm:grid-cols-2 gap-4 mt-5">
+          <a href="https://wa.me/242066446257" target="_blank" rel="noopener"
+             class="flex items-center gap-4 p-4 rounded-2xl border-2 border-green-200 bg-green-50 hover:bg-green-100 transition-all group">
+            <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="message-circle" class="w-5 h-5 text-green-600"></i>
+            </div>
+            <div>
+              <div class="font-bold text-slate-900 text-sm">WhatsApp direct</div>
+              <div class="text-xs text-slate-500">Réponse immédiate</div>
+            </div>
+            <i data-lucide="external-link" class="w-4 h-4 text-green-400 ml-auto group-hover:text-green-600 transition-colors"></i>
+          </a>
+          <a href="mailto:bertnajh@gmail.com"
+             class="flex items-center gap-4 p-4 rounded-2xl border-2 border-gold-200 bg-gold-50 hover:bg-gold-100 transition-all group">
+            <div class="w-10 h-10 rounded-xl bg-gold-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="mail" class="w-5 h-5 text-gold-600"></i>
+            </div>
+            <div>
+              <div class="font-bold text-slate-900 text-sm">Email direct</div>
+              <div class="text-xs text-slate-500">bertnajh@gmail.com</div>
+            </div>
+            <i data-lucide="external-link" class="w-4 h-4 text-gold-400 ml-auto group-hover:text-gold-600 transition-colors"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ rapide -->
+<section class="py-16 bg-white">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-10 reveal">
+      <h2 class="font-extrabold text-slate-900 mb-2" style="font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.02em">
+        Questions <span class="text-gold">fréquentes</span>
+      </h2>
+    </div>
+    <div class="space-y-3 reveal">
+      <details class="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-slate-900 text-sm list-none">
+          Comment obtenir un devis ?
+          <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+          Remplissez le formulaire ci-dessus ou contactez-nous directement sur WhatsApp. Nous vous répondons sous 24h avec une proposition personnalisée et gratuite.
+        </div>
+      </details>
+      <details class="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-slate-900 text-sm list-none">
+          Les tarifs événementiels incluent-ils le matériel ?
+          <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+          Non. Tous nos tarifs événementiels sont des mains d'œuvre uniquement. Le matériel (déco, mobilier, traiteur, etc.) fait l'objet d'un devis séparé selon vos besoins.
+        </div>
+      </details>
+      <details class="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-slate-900 text-sm list-none">
+          Les tarifs sont-ils négociables ?
+          <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+          Absolument. Nous adaptons toujours notre offre à votre budget et à vos contraintes. Contactez-nous et nous trouverons ensemble la meilleure solution.
+        </div>
+      </details>
+      <details class="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-slate-900 text-sm list-none">
+          Comment commander dans la boutique ?
+          <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+          Rendez-vous sur notre <a href="boutique.html" class="text-gold-500 font-semibold hover:underline">page boutique</a>, cliquez sur "Commander" et choisissez WhatsApp ou Email. Notre équipe vous confirme la disponibilité et le prix sous 24h.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 rounded-xl border border-gold-500/40 bg-gold-500/10 flex items-center justify-center"><span class="text-gold-400 font-extrabold text-xs">B48</span></div>
+          <span class="font-extrabold text-white tracking-wider">BERTNA48</span>
+        </div>
+        <p class="text-sm text-slate-500 max-w-xs leading-relaxed mb-4">Votre agence de confiance — Rapide. Efficace. Rentable.</p>
+        <div class="flex gap-3">
+          <a href="https://wa.me/242066446257" target="_blank" class="w-9 h-9 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500 hover:bg-green-500/20 transition-all"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+          <a href="mailto:bertnajh@gmail.com" class="w-9 h-9 rounded-full bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 hover:bg-gold-500/20 transition-all"><i data-lucide="mail" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-[10px] font-bold tracking-widests uppercase text-slate-500 mb-4">Navigation</h4>
+        <ul class="space-y-2.5">
+          <li><a href="index.html"         class="text-sm text-slate-400 hover:text-gold-400 transition-colors">Accueil</a></li>
+          <li><a href="services.html"      class="text-sm text-slate-400 hover:text-gold-400 transition-colors">Services</a></li>
+          <li><a href="evenementiel.html"  class="text-sm text-slate-400 hover:text-gold-400 transition-colors">Événementiel</a></li>
+          <li><a href="boutique.html"      class="text-sm text-slate-400 hover:text-gold-400 transition-colors">Boutique</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-[10px] font-bold tracking-widests uppercase text-slate-500 mb-4">Contact</h4>
+        <ul class="space-y-2.5">
+          <li class="text-sm text-slate-400">+242 06 644 62 57</li>
+          <li class="text-sm text-slate-400">bertnajh@gmail.com</li>
+          <li class="text-sm text-slate-400">Disponible 24h/24</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-slate-600">© 2024 BERTNA48. Tous droits réservés.</p>
+      <p class="text-xs text-slate-700 font-semibold">Rapide · Efficace · Rentable</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+  function toggleMenu(){document.getElementById('mob').classList.toggle('open');document.getElementById('ham').classList.toggle('open')}
+  document.addEventListener('click',e=>{if(!document.querySelector('nav').contains(e.target)){document.getElementById('mob').classList.remove('open');document.getElementById('ham').classList.remove('open')}});
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  function handleSubmit(e){
+    e.preventDefault();
+    const btn=document.getElementById('submit-btn');
+    const txt=document.getElementById('btn-text');
+    const msg=document.getElementById('success-msg');
+    btn.disabled=true;
+    txt.innerHTML='<svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>Envoi en cours...';
+    setTimeout(()=>{
+      btn.style.display='none';
+      msg.classList.remove('hidden');
+      e.target.reset();
+      lucide.createIcons();
+      setTimeout(()=>{btn.style.display='';btn.disabled=false;txt.innerHTML='<i data-lucide="send" class="w-4 h-4"></i>Envoyer le message';msg.classList.add('hidden');lucide.createIcons()},5000);
+    },1500);
+  }
+</script>
+</body>
+</html>

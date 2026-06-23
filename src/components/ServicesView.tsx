@@ -68,7 +68,7 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
       {subTab === 'poles' ? (
         <div className="pt-14">
           {/* Hero Section */}
-          <section className="relative h-[480px] flex items-center bg-[#0d1c32] overflow-hidden text-left">
+          <section className="relative h-[480px] flex items-center bg-[#161310] overflow-hidden text-left">
             <div className="absolute inset-0 opacity-30 pointer-events-none">
               <img
                 src={OFFICE_BACKGROUND_URL}
@@ -80,7 +80,7 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
               <div className="max-w-2xl space-y-6">
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
                   Expertise &amp; <br/>
-                  <span className="text-[#fcd400]">Performance.</span>
+                  <span className="text-[#f0c420]">Performance.</span>
                 </h1>
                 <p className="font-sans text-base sm:text-lg text-slate-300 leading-relaxed max-w-lg">
                   BERTNA48 transforme vos ambitions en résultats concrets à travers quatre pôles d'excellence stratégique.
@@ -88,7 +88,7 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
                 <div className="pt-2">
                   <button
                     onClick={scrollToGrid}
-                    className="inline-flex items-center gap-2 bg-[#fcd400] text-[#0d1c32] hover:bg-[#ffe16d] px-8 py-3.5 font-sans font-bold uppercase text-xs tracking-wider rounded-sm transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2 bg-[#f0c420] text-[#161310] hover:bg-[#ffe16d] px-8 py-3.5 font-sans font-bold uppercase text-xs tracking-wider rounded-sm transition-all cursor-pointer"
                   >
                     Découvrir nos pôles
                     <ArrowDown className="w-4 h-4 animate-bounce" />
@@ -104,10 +104,10 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
             className="py-24 max-w-7xl mx-auto px-4 md:px-16 text-center scroll-mt-24"
           >
             <div className="mb-16">
-              <h2 className="font-display text-3xl font-extrabold text-[#0d1c32] mb-3">
+              <h2 className="font-display text-3xl font-extrabold text-[#161310] mb-3">
                 Nos Solutions <span className="text-[#705d00]">360°</span>
               </h2>
-              <div className="w-24 h-1 bg-[#fcd400] mx-auto" />
+              <div className="w-24 h-1 bg-[#f0c420] mx-auto" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -119,14 +119,14 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
                     className="bg-white border border-slate-200 p-8 md:p-12 relative overflow-hidden text-left hover:shadow-[4px_4px_0px_0px_rgba(13,28,50,0.1)] transition-all duration-300 group"
                   >
                     {/* Visual accent top line */}
-                    <div className="absolute top-0 left-0 w-full h-1 bg-[#fcd400]" />
+                    <div className="absolute top-0 left-0 w-full h-1 bg-[#f0c420]" />
 
                     <div className="flex flex-col h-full justify-between">
                       <div className="space-y-6">
                         <div className="mb-6 inline-flex p-3 bg-slate-50 border border-slate-100 rounded-sm">
-                          <Icon className="w-12 h-12 text-[#0d1c32]" />
+                          <Icon className="w-12 h-12 text-[#161310]" />
                         </div>
-                        <h3 className="font-display text-2xl font-bold text-[#0d1c32]">
+                        <h3 className="font-display text-2xl font-bold text-[#161310]">
                           {pole.title}
                         </h3>
                         <p className="text-slate-600 text-sm leading-relaxed">
@@ -136,7 +136,7 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
                         <ul className="space-y-3 pt-2">
                           {pole.subservices.map((sub, sIdx) => (
                             <li key={sIdx} className="flex items-center gap-3 text-sm text-slate-700">
-                              <span className="w-5 h-5 rounded-full bg-[#fcd400]/20 flex items-center justify-center shrink-0">
+                              <span className="w-5 h-5 rounded-full bg-[#f0c420]/20 flex items-center justify-center shrink-0">
                                 <Check className="w-3.5 h-3.5 text-[#705d00] stroke-[3]" />
                               </span>
                               <span>{sub}</span>
@@ -148,7 +148,7 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
                       <div className="pt-8">
                         <button
                           onClick={() => onOpenRequest(pole.title, undefined, 'quote')}
-                          className="w-full bg-[#fcd400] hover:bg-[#ffe16d] text-[#0d1c32] py-3.5 font-sans font-bold text-xs uppercase tracking-wide rounded-sm transition-all flex justify-center items-center gap-2 cursor-pointer border border-yellow-400 font-extrabold"
+                          className="w-full bg-[#f0c420] hover:bg-[#ffe16d] text-[#161310] py-3.5 font-sans font-bold text-xs uppercase tracking-wide rounded-sm transition-all flex justify-center items-center gap-2 cursor-pointer border border-yellow-400 font-extrabold"
                         >
                           <FileText className="w-4 h-4" />
                           Demander un devis
@@ -162,10 +162,10 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
           </section>
 
           {/* Call to Action Solutions */}
-          <section className="bg-[#0d1c32] py-20 text-center px-4 md:px-16 text-white relative border-t border-slate-800">
+          <section className="bg-[#161310] py-20 text-center px-4 md:px-16 text-white relative border-t border-slate-800">
             <div className="max-w-3xl mx-auto space-y-6">
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-                Prêt à propulser vos <span className="text-[#fcd400]">résultats ?</span>
+                Prêt à propulser vos <span className="text-[#f0c420]">résultats ?</span>
               </h2>
               <p className="font-sans text-sm sm:text-base text-slate-300 max-w-lg mx-auto">
                 Contactez nos experts dès maintenant pour une analyse personnalisée et approfondie de vos besoins commerciaux ou institutionnels.
@@ -173,7 +173,7 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
               <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
                 <button
                   onClick={() => onOpenRequest('Consultation et Analyse Strategique', undefined, 'appointment')}
-                  className="bg-[#fcd400] text-[#0d1c32] hover:bg-[#ffe16d] px-10 py-4 font-sans font-bold text-xs uppercase tracking-wider rounded-sm transition-all cursor-pointer"
+                  className="bg-[#f0c420] text-[#161310] hover:bg-[#ffe16d] px-10 py-4 font-sans font-bold text-xs uppercase tracking-wider rounded-sm transition-all cursor-pointer"
                 >
                   Planifier un rendez-vous
                 </button>

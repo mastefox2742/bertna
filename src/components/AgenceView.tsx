@@ -42,18 +42,18 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
       <section className="relative w-full min-h-[90vh] flex items-center px-4 md:px-16 py-12 md:py-24 bg-gradient-to-br from-slate-50 via-white to-slate-100 overflow-hidden">
         {/* Abstract background blur shapes */}
         <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-          <div className="absolute top-1/4 right-[5%] w-[400px] h-[400px] rounded-full bg-[#fcd400]/20 blur-[120px]" />
-          <div className="absolute bottom-1/4 left-[5%] w-[350px] h-[350px] rounded-full bg-[#0d1c32]/10 blur-[100px]" />
+          <div className="absolute top-1/4 right-[5%] w-[400px] h-[400px] rounded-full bg-[#f0c420]/20 blur-[120px]" />
+          <div className="absolute bottom-1/4 left-[5%] w-[350px] h-[350px] rounded-full bg-[#161310]/10 blur-[100px]" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-left">
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-sm bg-[#fcd400]/20 text-[#6e5c00] font-sans text-xs font-extrabold uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-sm bg-[#f0c420]/20 text-[#6e5c00] font-sans text-xs font-extrabold uppercase tracking-widest">
               L'agence de la performance
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-[#0d1c32] tracking-tighter leading-none">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-[#161310] tracking-tighter leading-none">
               L'intelligence au <br/>
-              service de vos <span className="text-[#705d00] underline decoration-[#fcd400] decoration-4 underline-offset-4">résultats</span>
+              service de vos <span className="text-[#705d00] underline decoration-[#f0c420] decoration-4 underline-offset-4">résultats</span>
             </h1>
             <p className="font-sans text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
               Moins de discours, plus de résultats mesurables. Rapide. Efficace. Rentable. Une approche architecturale rigoureuse pour bâtir votre succès numérique suprême.
@@ -62,13 +62,13 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
                 onClick={() => onTabChange('services')}
-                className="inline-flex justify-center items-center py-4 px-8 bg-[#fcd400] hover:bg-[#ffe16d] text-[#111c2d] font-sans font-bold uppercase rounded-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer text-sm"
+                className="inline-flex justify-center items-center py-4 px-8 bg-[#f0c420] hover:bg-[#ffe16d] text-[#0b0907] font-sans font-bold uppercase rounded-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer text-sm"
               >
                 Découvrir l'Agence
               </button>
               <button
                 onClick={() => onTabChange('boutique')}
-                className="inline-flex justify-center items-center py-3.5 px-8 border-2 border-[#0d1c32] text-[#0d1c32] hover:bg-[#0d1c32] hover:text-white font-sans font-bold uppercase rounded-sm transition-all duration-200 cursor-pointer text-sm"
+                className="inline-flex justify-center items-center py-3.5 px-8 border-2 border-[#161310] text-[#161310] hover:bg-[#161310] hover:text-white font-sans font-bold uppercase rounded-sm transition-all duration-200 cursor-pointer text-sm"
               >
                 Visiter la Boutique
               </button>
@@ -78,11 +78,11 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
           {/* Right graphics */}
           <div className="hidden lg:flex justify-end relative select-none">
             <div className="w-full aspect-square max-w-md bg-white border border-slate-200 p-8 relative shadow-xl">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#fcd400]" />
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#f0c420]" />
               <div className="w-full h-full flex flex-col items-center justify-center gap-4">
                 <LogoMark size={100} />
                 <div className="text-center">
-                  <span className="font-display text-3xl font-black tracking-tighter text-[#0d1c32]">
+                  <span className="font-display text-3xl font-black tracking-tighter text-[#161310]">
                     BERT<span className="text-[#705d00]">NA48</span>
                   </span>
                   <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-1">
@@ -90,8 +90,8 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
                   </p>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -right-6 p-6 bg-[#0d1c32] text-white shadow-xl min-w-[180px]">
-                <span className="block font-display text-4xl font-extrabold leading-none text-[#fcd400]">100%</span>
+              <div className="absolute -bottom-6 -right-6 p-6 bg-[#161310] text-white shadow-xl min-w-[180px]">
+                <span className="block font-display text-4xl font-extrabold leading-none text-[#f0c420]">100%</span>
                 <span className="block text-xs font-bold uppercase tracking-widest text-slate-400 mt-1">Performance</span>
               </div>
             </div>
@@ -103,10 +103,10 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
       <section className="bg-white py-24 px-4 md:px-16 border-y border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="font-display text-3xl font-extrabold text-[#0d1c32] mb-3">
+            <h2 className="font-display text-3xl font-extrabold text-[#161310] mb-3">
               Nos 5 Piliers Fondamentaux
             </h2>
-            <div className="w-20 h-1 bg-[#fcd400] mx-auto" />
+            <div className="w-20 h-1 bg-[#f0c420] mx-auto" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -115,12 +115,12 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
               return (
                 <div
                   key={idx}
-                  className="bg-slate-50 p-6 border border-slate-200 hover:border-[#fcd400] transition-all duration-300 group hover:shadow-[4px_4px_0px_0px_rgba(13,28,50,0.1)] relative text-left"
+                  className="bg-slate-50 p-6 border border-slate-200 hover:border-[#f0c420] transition-all duration-300 group hover:shadow-[4px_4px_0px_0px_rgba(13,28,50,0.1)] relative text-left"
                 >
                   {/* Sliding hover top accent line */}
-                  <div className="absolute top-0 left-0 w-full h-0.5 bg-[#fcd400] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                  <div className="absolute top-0 left-0 w-full h-0.5 bg-[#f0c420] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                   <Icon className="w-8 h-8 text-[#705d00] mb-6 block group-hover:scale-110 transition-transform duration-200" />
-                  <h3 className="font-display text-lg font-bold text-[#0d1c32] mb-3">
+                  <h3 className="font-display text-lg font-bold text-[#161310] mb-3">
                     {p.title}
                   </h3>
                   <p className="text-sm text-slate-500 leading-relaxed font-sans">
@@ -138,7 +138,7 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-2 gap-6 h-auto">
             {/* Cell 1: Expertise Directe (Large 2 cols x 2 rows) */}
-            <div className="lg:col-span-2 lg:row-span-2 bg-[#0d1c32] p-10 md:p-14 flex flex-col justify-end text-white relative overflow-hidden text-left min-h-[400px]">
+            <div className="lg:col-span-2 lg:row-span-2 bg-[#161310] p-10 md:p-14 flex flex-col justify-end text-white relative overflow-hidden text-left min-h-[400px]">
               {/* Backlight trail artwork */}
               <div className="absolute top-0 right-0 w-full h-full opacity-20 pointer-events-none">
                 <img
@@ -157,7 +157,7 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
                 </p>
                 <button
                   onClick={() => onTabChange('services')}
-                  className="inline-flex justify-center items-center py-3 px-6 bg-[#fcd400] text-[#111c2d] hover:bg-[#ffe16d] font-bold uppercase tracking-wider text-xs rounded-sm transition-all shadow cursor-pointer"
+                  className="inline-flex justify-center items-center py-3 px-6 bg-[#f0c420] text-[#0b0907] hover:bg-[#ffe16d] font-bold uppercase tracking-wider text-xs rounded-sm transition-all shadow cursor-pointer"
                 >
                   Savoir Plus
                 </button>
@@ -167,20 +167,20 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
             {/* Cell 2: La Boutique Premium Link (2 cols x 1 row) */}
             <div
               onClick={() => onTabChange('boutique')}
-              className="lg:col-span-2 bg-[#fcd400] p-8 md:p-10 flex items-center justify-between group cursor-pointer overflow-hidden text-left hover:bg-[#ffe16d] transition-all shadow border border-yellow-400"
+              className="lg:col-span-2 bg-[#f0c420] p-8 md:p-10 flex items-center justify-between group cursor-pointer overflow-hidden text-left hover:bg-[#ffe16d] transition-all shadow border border-yellow-400"
             >
               <div className="flex-1 space-y-2">
-                <div className="bg-[#111c2d] text-white px-2 py-0.5 rounded-sm inline-block text-[10px] font-bold uppercase tracking-wider">
+                <div className="bg-[#0b0907] text-white px-2 py-0.5 rounded-sm inline-block text-[10px] font-bold uppercase tracking-wider">
                   Accès Privé
                 </div>
-                <h4 className="font-display text-2xl font-extrabold text-[#0d1c32]">
+                <h4 className="font-display text-2xl font-extrabold text-[#161310]">
                   La Boutique Premium
                 </h4>
                 <p className="text-sm text-[#544600] max-w-sm">
                   Accédez instantanément à nos articles de prêt-à-porter de créateurs, accessoires d'excellence et produits technologiques phares sélectionnés par BERTNA48.
                 </p>
               </div>
-              <div className="w-16 h-16 rounded-full bg-[#0d1c32] text-[#fcd400] flex items-center justify-center transition-transform group-hover:scale-110 shrink-0 shadow-lg ml-4">
+              <div className="w-16 h-16 rounded-full bg-[#161310] text-[#f0c420] flex items-center justify-center transition-transform group-hover:scale-110 shrink-0 shadow-lg ml-4">
                 <ShoppingCart className="w-6 h-6" />
               </div>
             </div>
@@ -200,7 +200,7 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
 
             {/* Cell 4: Satisfaction Counter (1 col x 1 row) */}
             <div className="bg-white border border-slate-200 p-8 flex flex-col justify-center items-center text-center shadow-sm">
-              <span className="font-display text-5xl font-black text-[#0d1c32] block mb-2 tracking-tight">
+              <span className="font-display text-5xl font-black text-[#161310] block mb-2 tracking-tight">
                 98%
               </span>
               <p className="text-xs font-extrabold uppercase tracking-wider text-slate-400">
@@ -218,7 +218,7 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
       <section className="py-20 bg-white px-4 md:px-16 border-t border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-display text-2xl font-bold text-[#0d1c32]">
+            <h2 className="font-display text-2xl font-bold text-[#161310]">
               Partenaires de Votre Croissance
             </h2>
             <p className="text-sm text-slate-500 mt-2 font-sans">
@@ -243,10 +243,10 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
                 </p>
                 <div className="border-t border-slate-200 pt-4 flex justify-between items-center">
                   <div>
-                    <h4 className="font-bold text-[#0d1c32] text-sm">{t.name}</h4>
+                    <h4 className="font-bold text-[#161310] text-sm">{t.name}</h4>
                     <span className="text-xs text-slate-500">{t.role}</span>
                   </div>
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-[#705d00] bg-[#fcd400]/20 px-2 py-1 rounded-sm">
+                  <span className="text-xs font-extrabold uppercase tracking-widest text-[#705d00] bg-[#f0c420]/20 px-2 py-1 rounded-sm">
                     {t.company}
                   </span>
                 </div>
@@ -257,7 +257,7 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
       </section>
 
       {/* 5. Call to Action */}
-      <section className="bg-[#0d1c32] py-20 text-center px-4 md:px-16 text-white relative">
+      <section className="bg-[#161310] py-20 text-center px-4 md:px-16 text-white relative">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_#ffe16d_0%,_transparent_60%)]" />
         </div>
@@ -271,7 +271,7 @@ export default function AgenceView({ onTabChange, onOpenRequest }: AgenceViewPro
           <div className="pt-4">
             <button
               onClick={() => onOpenRequest('Consultation Initiale Stratégique', undefined, 'appointment')}
-              className="px-10 py-4.5 bg-[#fcd400] text-[#0d1c32] font-sans font-bold uppercase tracking-wider rounded-sm text-sm hover:scale-105 active:scale-95 transition-all shadow-lg cursor-pointer"
+              className="px-10 py-4.5 bg-[#f0c420] text-[#161310] font-sans font-bold uppercase tracking-wider rounded-sm text-sm hover:scale-105 active:scale-95 transition-all shadow-lg cursor-pointer"
             >
               Démarrer le Projet
             </button>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique – BERTNA48</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { gold: { 50:'#fdf8e8',100:'#faefc4',200:'#f5da84',300:'#eec043',400:'#D4AF37',500:'#c09b28',600:'#a07e1f' } },
+        fontFamily: { sans: ['"Plus Jakarta Sans"','system-ui','sans-serif'] }
+      }}
+    }
+  </script>
+  <style>
+    html{scroll-behavior:smooth}body{overflow-x:hidden}
+    .text-gold{background:linear-gradient(135deg,#c09b28,#D4AF37,#e8c96a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(255,255,255,.9);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+    .nav-link{position:relative;padding-bottom:2px}.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:#D4AF37;transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}.nav-link.active{color:#1e293b!important}
+    .btn-gold{background:linear-gradient(135deg,#D4AF37,#c09b28);box-shadow:0 6px 24px rgba(212,175,55,.3);position:relative;overflow:hidden}.btn-gold::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s}.btn-gold:hover::before{left:100%}.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(212,175,55,.4)}
+    .card{transition:transform .35s,box-shadow .35s,border-color .35s}.card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(212,175,55,.12);border-color:rgba(212,175,55,.45)!important}
+    .img-zoom{overflow:hidden}.img-zoom img{transition:transform .55s;width:100%;height:100%;object-fit:cover}.card:hover .img-zoom img{transform:scale(1.06)}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}.reveal.on{opacity:1;transform:translateY(0)}
+    .hamburger span{display:block;width:24px;height:2px;background:#1e293b;border-radius:2px;transition:.3s}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    #mob{display:none}#mob.open{display:block}
+    .filter-btn.active{background:#D4AF37;color:#1e293b;border-color:#D4AF37;font-weight:700}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.05) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+    /* Modal */
+    #modal-overlay{display:none}#modal-overlay.open{display:flex}
+    .glass-modal{background:rgba(255,255,255,.97);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px)}
+  </style>
+</head>
+<body class="font-sans bg-white text-slate-900 antialiased">
+
+<!-- MODAL -->
+<div id="modal-overlay" class="fixed inset-0 z-[9999] items-center justify-center p-4"
+     style="background:rgba(15,23,42,.65);backdrop-filter:blur(8px)" onclick="handleOverlay(event)">
+  <div id="modal-box" class="glass-modal rounded-2xl shadow-2xl max-w-md w-full p-8 relative border border-gold-200">
+    <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-all">
+      <i data-lucide="x" class="w-4 h-4"></i>
+    </button>
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gold-50 border border-gold-200 mb-4">
+        <i data-lucide="shopping-bag" class="w-6 h-6 text-gold-400"></i>
+      </div>
+      <h3 id="modal-title" class="text-xl font-bold text-slate-900 mb-1">Produit</h3>
+      <p class="text-sm text-slate-500 leading-relaxed">Contactez-nous pour commander. Notre équipe vous répond rapidement.</p>
+    </div>
+    <div class="space-y-3">
+      <a href="https://wa.me/242066446257" target="_blank" rel="noopener"
+         class="btn-gold flex items-center justify-center gap-3 w-full py-3.5 rounded-xl font-semibold text-white transition-all hover:-translate-y-0.5"
+         style="background:linear-gradient(135deg,#25D166,#1da851);box-shadow:0 6px 20px rgba(37,209,102,.25)">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>Commander via WhatsApp
+      </a>
+      <a href="mailto:bertnajh@gmail.com"
+         class="flex items-center justify-center gap-3 w-full py-3.5 rounded-xl font-semibold text-gold-600 border-2 border-gold-400 hover:bg-gold-50 transition-all hover:-translate-y-0.5">
+        <i data-lucide="mail" class="w-5 h-5"></i>Commander par Email
+      </a>
+    </div>
+    <p class="text-center text-xs text-slate-400 mt-4">Réponse garantie sous 24h · Livraison sur devis</p>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-[999] glass border-b border-slate-200/60">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-[68px] flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-xl border-2 border-gold-400 bg-gold-50 flex items-center justify-center shadow-sm"><span class="text-gold-500 font-extrabold text-xs tracking-widest">B48</span></div>
+      <span class="font-extrabold text-base tracking-wider text-slate-900 group-hover:text-gold-500 transition-colors">BERTNA48</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-7">
+      <li><a href="index.html"          class="nav-link text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">Accueil</a></li>
+      <li><a href="services.html"       class="nav-link text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">Services</a></li>
+      <li><a href="evenementiel.html"   class="nav-link text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">Événementiel</a></li>
+      <li><a href="boutique.html"       class="nav-link active text-sm font-semibold text-slate-900 transition-colors">Boutique</a></li>
+      <li><a href="contact.html" class="btn-gold inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-all"><i data-lucide="mail" class="w-3.5 h-3.5"></i>Contact</a></li>
+    </ul>
+    <button class="hamburger md:hidden flex flex-col gap-[5px] p-2 cursor-pointer" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+  <div id="mob" class="md:hidden border-t border-slate-100 bg-white/98">
+    <div class="px-6 py-5 flex flex-col gap-3">
+      <a href="index.html"        class="text-sm font-semibold text-slate-700 hover:text-gold-500 py-1 transition-colors">Accueil</a>
+      <a href="services.html"     class="text-sm font-semibold text-slate-700 hover:text-gold-500 py-1 transition-colors">Services</a>
+      <a href="evenementiel.html" class="text-sm font-semibold text-slate-700 hover:text-gold-500 py-1 transition-colors">Événementiel</a>
+      <a href="boutique.html"     class="text-sm font-semibold text-gold-500 py-1">Boutique</a>
+      <a href="contact.html"      class="btn-gold mt-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="relative pt-28 pb-14 bg-white overflow-hidden">
+  <div class="hero-grid"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center relative z-10">
+    <span class="inline-block text-[11px] font-bold tracking-widests uppercase text-gold-500 bg-gold-50 border border-gold-200 px-4 py-1.5 rounded-full mb-4">Boutique en ligne</span>
+    <h1 class="font-extrabold text-slate-900 mb-4" style="font-size:clamp(2.4rem,5vw,4rem);letter-spacing:-.02em">
+      Notre <span class="text-gold">Boutique</span>
+    </h1>
+    <p class="text-slate-500 max-w-lg mx-auto leading-relaxed">
+      Mode, beauté, accessoires et articles bébé sélectionnés avec soin. Commandez facilement via WhatsApp ou Email.
+    </p>
+  </div>
+</div>
+
+<!-- SHOP -->
+<section class="py-12 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <!-- Filters -->
+    <div class="flex flex-wrap gap-3 justify-center mb-10 reveal">
+      <button class="filter-btn active px-5 py-2.5 rounded-full text-sm border border-slate-200 text-slate-600 hover:border-gold-400 hover:text-gold-600 transition-all" onclick="filter('all',this)">
+        Tout voir
+      </button>
+      <button class="filter-btn px-5 py-2.5 rounded-full text-sm border border-slate-200 text-slate-600 hover:border-gold-400 hover:text-gold-600 transition-all" onclick="filter('mode',this)">
+        <span class="flex items-center gap-1.5"><i data-lucide="shirt" class="w-3.5 h-3.5"></i>Mode</span>
+      </button>
+      <button class="filter-btn px-5 py-2.5 rounded-full text-sm border border-slate-200 text-slate-600 hover:border-gold-400 hover:text-gold-600 transition-all" onclick="filter('beaute',this)">
+        <span class="flex items-center gap-1.5"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i>Beauté</span>
+      </button>
+      <button class="filter-btn px-5 py-2.5 rounded-full text-sm border border-slate-200 text-slate-600 hover:border-gold-400 hover:text-gold-600 transition-all" onclick="filter('accessoires',this)">
+        <span class="flex items-center gap-1.5"><i data-lucide="watch" class="w-3.5 h-3.5"></i>Accessoires</span>
+      </button>
+      <button class="filter-btn px-5 py-2.5 rounded-full text-sm border border-slate-200 text-slate-600 hover:border-gold-400 hover:text-gold-600 transition-all" onclick="filter('bebe',this)">
+        <span class="flex items-center gap-1.5"><i data-lucide="baby" class="w-3.5 h-3.5"></i>Bébé</span>
+      </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="shop-grid">
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="mode">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500&auto=format&fit=crop&q=80" alt="Robe Élégante">
+          <span class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase bg-gold-400 text-white px-2.5 py-1 rounded-full">Nouveauté</span>
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Mode Femme</div>
+          <div class="font-bold text-slate-900 mb-3">Robe Élégante</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Robe Élégante')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="mode">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&auto=format&fit=crop&q=80" alt="T-shirt Premium">
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Mode Unisexe</div>
+          <div class="font-bold text-slate-900 mb-3">T-shirt Premium</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('T-shirt Premium')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="mode">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80" alt="Costume Élite">
+          <span class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase bg-slate-800 text-white px-2.5 py-1 rounded-full">Premium</span>
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Mode Homme</div>
+          <div class="font-bold text-slate-900 mb-3">Costume Élite</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Costume Élite')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="mode">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=500&auto=format&fit=crop&q=80" alt="Ensemble Chic">
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Mode Femme</div>
+          <div class="font-bold text-slate-900 mb-3">Ensemble Chic</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Ensemble Chic')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="beaute">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=500&auto=format&fit=crop&q=80" alt="Parfum Luxe">
+          <span class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase bg-gold-400 text-white px-2.5 py-1 rounded-full">Exclusif</span>
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Beauté</div>
+          <div class="font-bold text-slate-900 mb-3">Parfum Luxe</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Parfum Luxe')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="beaute">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&auto=format&fit=crop&q=80" alt="Kit Soin">
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Beauté & Soin</div>
+          <div class="font-bold text-slate-900 mb-3">Kit Soin Premium</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Kit Soin Premium')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="beaute">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500&auto=format&fit=crop&q=80" alt="Maquillage">
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Cosmétiques</div>
+          <div class="font-bold text-slate-900 mb-3">Collection Maquillage</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Collection Maquillage')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="accessoires">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&auto=format&fit=crop&q=80" alt="Sac à main">
+          <span class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase bg-gold-400 text-white px-2.5 py-1 rounded-full">Tendance</span>
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Accessoires</div>
+          <div class="font-bold text-slate-900 mb-3">Sac à Main Designer</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Sac à Main Designer')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="accessoires">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=80" alt="Montre">
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Accessoires</div>
+          <div class="font-bold text-slate-900 mb-3">Montre Élégante</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Montre Élégante')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="accessoires">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1594938298603-c8148c4b5768?w=500&auto=format&fit=crop&q=80" alt="Ceinture">
+          <span class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase bg-slate-800 text-white px-2.5 py-1 rounded-full">Artisan</span>
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Accessoires</div>
+          <div class="font-bold text-slate-900 mb-3">Ceinture Cuir Luxe</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Ceinture Cuir Luxe')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="bebe">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=500&auto=format&fit=crop&q=80" alt="Tenue Bébé">
+          <span class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase bg-pink-400 text-white px-2.5 py-1 rounded-full">Mignon</span>
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Bébé</div>
+          <div class="font-bold text-slate-900 mb-3">Tenue Bébé Prestige</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Tenue Bébé Prestige')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card card bg-white rounded-2xl border border-slate-100 overflow-hidden" data-cat="bebe">
+        <div class="img-zoom h-64 relative">
+          <img src="https://images.unsplash.com/photo-1563461660947-507ef49e9c47?w=500&auto=format&fit=crop&q=80" alt="Jouet">
+        </div>
+        <div class="p-4">
+          <div class="text-[10px] font-bold tracking-widest uppercase text-gold-500 mb-1">Bébé & Éveil</div>
+          <div class="font-bold text-slate-900 mb-3">Jouet Éducatif</div>
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-gold text-lg">Sur devis</span>
+            <button onclick="openModal('Jouet Éducatif')" class="btn-gold flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white">
+              <i data-lucide="shopping-cart" class="w-3 h-3"></i>Commander
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Info commande -->
+    <div class="reveal mt-12 rounded-2xl bg-white border border-slate-100 p-6 flex flex-col sm:flex-row items-center gap-5 shadow-sm">
+      <div class="w-12 h-12 rounded-xl bg-green-50 border border-green-200 flex items-center justify-center flex-shrink-0">
+        <i data-lucide="message-circle" class="w-5 h-5 text-green-600"></i>
+      </div>
+      <div class="flex-1 text-center sm:text-left">
+        <p class="font-bold text-slate-900 mb-0.5">Comment commander ?</p>
+        <p class="text-sm text-slate-500">Cliquez sur "Commander", choisissez WhatsApp ou Email. Notre équipe vous répond sous 24h avec le prix et les disponibilités.</p>
+      </div>
+      <a href="https://wa.me/242066446257" target="_blank"
+         class="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-white text-sm"
+         style="background:linear-gradient(135deg,#25D166,#1da851)">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>+242 06 644 62 57
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 border-t border-white/5 mt-16">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-8">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg border border-gold-500/40 bg-gold-500/10 flex items-center justify-center"><span class="text-gold-400 font-extrabold text-[10px]">B48</span></div>
+        <span class="font-extrabold text-white tracking-wider text-sm">BERTNA48</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="index.html"         class="text-xs text-slate-500 hover:text-gold-400 transition-colors">Accueil</a>
+        <a href="services.html"      class="text-xs text-slate-500 hover:text-gold-400 transition-colors">Services</a>
+        <a href="evenementiel.html"  class="text-xs text-slate-500 hover:text-gold-400 transition-colors">Événementiel</a>
+        <a href="contact.html"       class="text-xs text-slate-500 hover:text-gold-400 transition-colors">Contact</a>
+      </div>
+      <p class="text-xs text-slate-600">© 2024 BERTNA48</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+  function toggleMenu(){document.getElementById('mob').classList.toggle('open');document.getElementById('ham').classList.toggle('open')}
+  document.addEventListener('click',e=>{if(!document.querySelector('nav').contains(e.target)&&!document.getElementById('modal-overlay').contains(e.target)){document.getElementById('mob').classList.remove('open');document.getElementById('ham').classList.remove('open')}});
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  function filter(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(c=>{
+      if(cat==='all'||c.dataset.cat===cat){
+        c.style.display='';
+        requestAnimationFrame(()=>{c.style.opacity='0';c.style.transform='translateY(12px)';
+          requestAnimationFrame(()=>{c.style.transition='opacity .35s,transform .35s';c.style.opacity='1';c.style.transform='translateY(0)'});
+        });
+      } else { c.style.display='none'; }
+    });
+    lucide.createIcons();
+  }
+
+  function openModal(name){
+    document.getElementById('modal-title').textContent=name;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow='hidden';
+    lucide.createIcons();
+  }
+  function closeModal(){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow=''}
+  function handleOverlay(e){if(e.target===document.getElementById('modal-overlay'))closeModal()}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
+</body>
+</html>

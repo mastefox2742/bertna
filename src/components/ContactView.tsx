@@ -34,10 +34,10 @@ export default function ContactView() {
     <div className="font-sans text-slate-800 antialiased overflow-hidden py-16 px-4 md:px-16 max-w-7xl mx-auto text-left">
       {/* Header section */}
       <div className="mb-16">
-        <span className="inline-block px-4 py-1.5 bg-[#fcd400]/20 text-[#6e5c00] rounded-sm mb-4 font-sans text-xs font-extrabold uppercase tracking-widest">
+        <span className="inline-block px-4 py-1.5 bg-[#f0c420]/20 text-[#6e5c00] rounded-sm mb-4 font-sans text-xs font-extrabold uppercase tracking-widest">
           COMMUNICATION DIRECTE
         </span>
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-[#0d1c32] tracking-tighter leading-none mb-6">
+        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-[#161310] tracking-tighter leading-none mb-6">
           Contact &amp; Support
         </h1>
         <p className="font-sans text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
@@ -50,9 +50,9 @@ export default function ContactView() {
         <div className="lg:col-span-5 space-y-8">
           
           <div className="bg-slate-50 border border-slate-200 p-8 space-y-8 relative overflow-hidden rounded-sm">
-            <div className="absolute top-0 left-0 w-2 h-full bg-[#fcd400]" />
+            <div className="absolute top-0 left-0 w-2 h-full bg-[#f0c420]" />
             
-            <h3 className="font-display text-2xl font-black text-[#0d1c32] tracking-tight">
+            <h3 className="font-display text-2xl font-black text-[#161310] tracking-tight">
               Canaux Officiels
             </h3>
 
@@ -61,13 +61,13 @@ export default function ContactView() {
                 href="https://wa.me/242066446257"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-start gap-4 p-4 bg-white border border-slate-100 hover:border-[#fcd400] transition-colors rounded-sm group"
+                className="flex items-start gap-4 p-4 bg-white border border-slate-100 hover:border-[#f0c420] transition-colors rounded-sm group"
               >
                 <div className="p-3 bg-[#25D366]/10 text-[#25D366] rounded-sm shrink-0 group-hover:bg-[#25D366] group-hover:text-white transition-colors">
                   <MessageSquare className="w-6 h-6 fill-current" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0d1c32] text-sm">WhatsApp Business</h4>
+                  <h4 className="font-bold text-[#161310] text-sm">WhatsApp Business</h4>
                   <p className="text-xs text-slate-500 mt-0.5">Réponse garantie en moins de 5 minutes</p>
                   <p className="font-mono text-sm text-[#705d00] font-bold mt-2">+242 06 644  62 57</p>
                 </div>
@@ -75,29 +75,29 @@ export default function ContactView() {
 
               <a 
                 href="tel:+242066446257"
-                className="flex items-start gap-4 p-4 bg-white border border-slate-100 hover:border-[#fcd400] transition-colors rounded-sm group"
+                className="flex items-start gap-4 p-4 bg-white border border-slate-100 hover:border-[#f0c420] transition-colors rounded-sm group"
               >
                 <div className="p-3 bg-red-50 text-red-600 rounded-sm shrink-0 group-hover:bg-red-500 group-hover:text-white transition-colors">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0d1c32] text-sm">Ligne Téléphonique Directe</h4>
+                  <h4 className="font-bold text-[#161310] text-sm">Ligne Téléphonique Directe</h4>
                   <p className="text-xs text-slate-500 mt-0.5">Appels vocaux et consultations d'urgence</p>
-                  <p className="font-mono text-sm text-[#0d1c32] font-bold mt-2">+242 06 644  62 57</p>
+                  <p className="font-mono text-sm text-[#161310] font-bold mt-2">+242 06 644  62 57</p>
                 </div>
               </a>
 
               <a 
                 href="mailto:bertnajh@gmail.com"
-                className="flex items-start gap-4 p-4 bg-white border border-slate-100 hover:border-[#fcd400] transition-colors rounded-sm group"
+                className="flex items-start gap-4 p-4 bg-white border border-slate-100 hover:border-[#f0c420] transition-colors rounded-sm group"
               >
                 <div className="p-3 bg-indigo-50 text-indigo-600 rounded-sm shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0d1c32] text-sm">Courregistre Électronique (Mail)</h4>
+                  <h4 className="font-bold text-[#161310] text-sm">Courregistre Électronique (Mail)</h4>
                   <p className="text-xs text-slate-500 mt-0.5">Dossiers institutionnels, brochures &amp; devis volumineux</p>
-                  <p className="font-mono text-sm text-[#0d1c32] font-bold mt-2">bertnajh@gmail.com</p>
+                  <p className="font-mono text-sm text-[#161310] font-bold mt-2">bertnajh@gmail.com</p>
                 </div>
               </a>
             </div>
@@ -112,11 +112,11 @@ export default function ContactView() {
 
         {/* Form panel, Right column, lg:span-7 */}
         <div className="lg:col-span-7 bg-white border border-slate-200 p-8 md:p-12 shadow-sm rounded-sm relative text-left">
-          <div className="absolute top-0 right-0 w-full h-1.5 bg-[#fcd400]" />
+          <div className="absolute top-0 right-0 w-full h-1.5 bg-[#f0c420]" />
           
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
-              <h3 className="font-display text-2xl font-black text-[#0d1c32] tracking-tight">
+              <h3 className="font-display text-2xl font-black text-[#161310] tracking-tight">
                 Envoyer un Message Rapide
               </h3>
               
@@ -132,7 +132,7 @@ export default function ContactView() {
                       onClick={() => setSubject(sObj)}
                       className={`py-3 px-4 rounded-sm border font-sans text-xs font-bold transition-all text-center cursor-pointer ${
                         subject === sObj
-                          ? 'border-[#0d1c32] bg-[#0d1c32] text-white'
+                          ? 'border-[#161310] bg-[#161310] text-white'
                           : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                       }`}
                     >
@@ -153,7 +153,7 @@ export default function ContactView() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Ex: Patricia Malonga"
-                    className="w-full px-4 py-3 bg-white border border-slate-300 text-slate-900 rounded-sm outline-none focus:border-[#0d1c32] transition-colors text-sm"
+                    className="w-full px-4 py-3 bg-white border border-slate-300 text-slate-900 rounded-sm outline-none focus:border-[#161310] transition-colors text-sm"
                   />
                 </div>
                 <div>
@@ -166,7 +166,7 @@ export default function ContactView() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Ex: +242 06 644 62 57"
-                    className="w-full px-4 py-3 bg-white border border-slate-300 text-slate-900 rounded-sm outline-none focus:border-[#0d1c32] transition-colors text-sm"
+                    className="w-full px-4 py-3 bg-white border border-slate-300 text-slate-900 rounded-sm outline-none focus:border-[#161310] transition-colors text-sm"
                   />
                 </div>
               </div>
@@ -180,7 +180,7 @@ export default function ContactView() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="nom@domaine.com (optionnel)"
-                  className="w-full px-4 py-3 bg-white border border-slate-300 text-slate-900 rounded-sm outline-none focus:border-[#0d1c32] transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-slate-300 text-slate-900 rounded-sm outline-none focus:border-[#161310] transition-colors text-sm"
                 />
               </div>
 
@@ -194,14 +194,14 @@ export default function ContactView() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Ex: J'aimerais en savoir plus sur l'organisation de galas de fin d'année et obtenir un devis global..."
-                  className="w-full px-4 py-3 bg-white border border-slate-300 text-slate-900 rounded-sm outline-none focus:border-[#0d1c32] transition-colors text-sm resize-none"
+                  className="w-full px-4 py-3 bg-white border border-slate-300 text-slate-900 rounded-sm outline-none focus:border-[#161310] transition-colors text-sm resize-none"
                 />
               </div>
 
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#fcd400] hover:bg-[#ffe16d] text-[#111c2d] font-sans font-black uppercase text-xs tracking-wider py-4 px-6 rounded-sm transition-all focus:outline-none cursor-pointer border border-[#fcd400]"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#f0c420] hover:bg-[#ffe16d] text-[#0b0907] font-sans font-black uppercase text-xs tracking-wider py-4 px-6 rounded-sm transition-all focus:outline-none cursor-pointer border border-[#f0c420]"
                   id="submit-contact-form"
                 >
                   <Send className="w-4 h-4" />
@@ -215,7 +215,7 @@ export default function ContactView() {
                 <CheckCircle className="w-10 h-10" />
               </div>
               <div>
-                <h3 className="font-display text-2xl font-bold text-[#0d1c32] tracking-tight mb-2">
+                <h3 className="font-display text-2xl font-bold text-[#161310] tracking-tight mb-2">
                   Message Préparé !
                 </h3>
                 <p className="text-sm text-slate-500 max-w-sm mx-auto">
@@ -232,7 +232,7 @@ export default function ContactView() {
                     setEmail('');
                     setMessage('');
                   }}
-                  className="px-6 py-3 bg-[#0d1c32] hover:bg-[#39475f] text-white rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                  className="px-6 py-3 bg-[#161310] hover:bg-[#38322a] text-white rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   Nouveau message
                 </button>

@@ -34,10 +34,10 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
       <section className="mt-8 px-4 md:px-16 py-12 md:py-20 max-w-7xl mx-auto text-left">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="w-full lg:w-1/2 space-y-6">
-            <div className="w-16 h-1 bg-[#fcd400]" />
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-[#0d1c32] tracking-tighter leading-none">
+            <div className="w-16 h-1 bg-[#f0c420]" />
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-[#161310] tracking-tighter leading-none">
               L'Excellence <br/>
-              <span className="text-[#705d00] underline decoration-[#fcd400] decoration-4 underline-offset-4">Signature</span> de BERTNA48
+              <span className="text-[#705d00] underline decoration-[#f0c420] decoration-4 underline-offset-4">Signature</span> de BERTNA48
             </h1>
             <p className="font-sans text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
               Découvrez notre sélection exclusive d'articles et d'accessoires d'un luxe suprême. Chaque pièce d'exception est minutieusement choisie pour refléter l'autorité, l'élégance aristocratique et la haute performance.
@@ -46,7 +46,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
           
           <div className="w-full lg:w-1/2 relative h-[320px] sm:h-[400px] lg:h-[450px]">
             {/* Soft decorative golden backdrop frame */}
-            <div className="absolute inset-0 bg-[#fcd400]/10 -rotate-3 rounded-sm border border-[#fcd400]/20" />
+            <div className="absolute inset-0 bg-[#f0c420]/10 -rotate-3 rounded-sm border border-[#f0c420]/20" />
             <img
               src={HANDBAGS_PEDESTAL_URL}
               alt="High-end leather cases and premium lifestyle background"
@@ -70,7 +70,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
                   onClick={() => setSelectedCategory(cat)}
                   className={`font-sans font-bold text-xs uppercase tracking-wider py-2 px-4 transition-all duration-150 cursor-pointer rounded-sm ${
                     isActive
-                      ? 'bg-[#0d1c32] text-white font-extrabold shadow-sm'
+                      ? 'bg-[#161310] text-white font-extrabold shadow-sm'
                       : 'text-slate-600 hover:bg-slate-100'
                   }`}
                 >
@@ -88,7 +88,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Rechercher un article..."
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 rounded-sm outline-none focus:bg-white focus:border-[#0d1c32] focus:ring-1 focus:ring-[#0d1c32] transition-all text-sm font-sans"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 rounded-sm outline-none focus:bg-white focus:border-[#161310] focus:ring-1 focus:ring-[#161310] transition-all text-sm font-sans"
             />
             {searchQuery && (
               <button
@@ -113,7 +113,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
                   className="bg-white border border-slate-200 overflow-hidden group relative hover:shadow-[4px_4px_0px_0px_rgba(13,28,50,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                 >
                   {/* Sliding hover top gold safety bar */}
-                  <div className="h-1.5 bg-[#fcd400] absolute top-0 left-0 w-full transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10" />
+                  <div className="h-1.5 bg-[#f0c420] absolute top-0 left-0 w-full transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10" />
 
                   {/* Product Image Frame */}
                   <div 
@@ -125,7 +125,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
                       alt={p.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550"
                     />
-                    <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-[#0d1c32] flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-[#161310] flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
@@ -138,7 +138,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
                       </span>
                       <h3 
                         onClick={() => setSelectedProduct(p)}
-                        className="font-display text-lg font-bold text-[#0d1c32] hover:text-[#705d00] transition-colors cursor-pointer leading-tight"
+                        className="font-display text-lg font-bold text-[#161310] hover:text-[#705d00] transition-colors cursor-pointer leading-tight"
                       >
                         {p.name}
                       </h3>
@@ -154,7 +154,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
                       
                       <button
                         onClick={() => onOpenRequest(p.name, p.formattedPrice, 'order', p)}
-                        className="w-full flex items-center justify-center gap-2 bg-[#fcd400] hover:bg-[#0d1c32] hover:text-white text-[#111c2d] font-sans font-bold py-3.5 px-4 rounded-sm transition-all text-xs uppercase tracking-wider active:scale-95 cursor-pointer border border-yellow-400 group-hover:border-transparent font-extrabold"
+                        className="w-full flex items-center justify-center gap-2 bg-[#f0c420] hover:bg-[#161310] hover:text-white text-[#0b0907] font-sans font-bold py-3.5 px-4 rounded-sm transition-all text-xs uppercase tracking-wider active:scale-95 cursor-pointer border border-yellow-400 group-hover:border-transparent font-extrabold"
                       >
                         <MessageSquare className="w-4 h-4 fill-current" />
                         Commander via WhatsApp
@@ -168,7 +168,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
         ) : (
           <div className="py-24 text-center space-y-4 max-w-md mx-auto">
             <Filter className="w-12 h-12 text-slate-300 mx-auto" />
-            <h3 className="font-display text-xl font-bold text-[#0d1c32]">
+            <h3 className="font-display text-xl font-bold text-[#161310]">
               Aucun produit ne correspond
             </h3>
             <p className="text-sm text-slate-500 font-sans">
@@ -179,7 +179,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
                 setSelectedCategory('Tout');
                 setSearchQuery('');
               }}
-              className="px-6 py-2.5 bg-[#0d1c32] text-white rounded-sm font-bold text-xs uppercase"
+              className="px-6 py-2.5 bg-[#161310] text-white rounded-sm font-bold text-xs uppercase"
             >
               Réinitialiser les filtres
             </button>
@@ -211,7 +211,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
                 <span className="font-sans text-xs font-black text-[#705d00] uppercase tracking-widest">
                   {selectedProduct.category}
                 </span>
-                <h3 className="font-display text-2xl font-black text-[#0d1c32] tracking-tight leading-none">
+                <h3 className="font-display text-2xl font-black text-[#161310] tracking-tight leading-none">
                   {selectedProduct.name}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed font-sans">
@@ -219,7 +219,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
                 </p>
                 <div className="bg-slate-50 p-4 border border-slate-100 rounded-sm">
                   <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Prix exclusif</span>
-                  <p className="font-display font-black text-2xl text-[#0d1c32] tracking-tight">
+                  <p className="font-display font-black text-2xl text-[#161310] tracking-tight">
                     {selectedProduct.formattedPrice}
                   </p>
                 </div>
@@ -232,7 +232,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
                     setSelectedProduct(null);
                     onOpenRequest(prod.name, prod.formattedPrice, 'order', prod);
                   }}
-                  className="w-full flex items-center justify-center gap-3 bg-[#fcd400] hover:bg-[#ffe16d] text-[#0d1c32] font-sans font-bold py-3.5 px-6 rounded-sm text-xs uppercase tracking-widest transition-all cursor-pointer border border-[#fcd400]"
+                  className="w-full flex items-center justify-center gap-3 bg-[#f0c420] hover:bg-[#ffe16d] text-[#161310] font-sans font-bold py-3.5 px-6 rounded-sm text-xs uppercase tracking-widest transition-all cursor-pointer border border-[#f0c420]"
                 >
                   <MessageSquare className="w-4 h-4 fill-current" />
                   Passer la commande WhatsApp
@@ -244,7 +244,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
       )}
 
       {/* 5. Call to Action */}
-      <section className="bg-[#0d1c32] py-20 text-center px-4 md:px-16 text-white relative">
+      <section className="bg-[#161310] py-20 text-center px-4 md:px-16 text-white relative">
         <div className="max-w-3xl mx-auto space-y-6">
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
             Besoin d'un accompagnement sur-mesure ?
@@ -255,7 +255,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
             <button
               onClick={() => onOpenRequest('Consultation Accompagnement Sur Mesure', undefined, 'appointment')}
-              className="bg-[#fcd400] text-[#0d1c32] hover:bg-[#ffe16d] px-8 py-3.5 font-sans font-bold text-xs uppercase tracking-wider rounded-sm transition-all cursor-pointer"
+              className="bg-[#f0c420] text-[#161310] hover:bg-[#ffe16d] px-8 py-3.5 font-sans font-bold text-xs uppercase tracking-wider rounded-sm transition-all cursor-pointer"
             >
               Prendre Rendez-vous
             </button>

@@ -60,7 +60,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
       <div className="relative w-full max-w-lg bg-[#ffffff] border border-slate-200 rounded-sm shadow-2xl overflow-hidden">
         {/* Top gold bar accent */}
-        <div className="h-1.5 bg-[#fcd400] w-full" />
+        <div className="h-1.5 bg-[#f0c420] w-full" />
 
         {/* Close Button */}
         <button
@@ -74,7 +74,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
         <div className="p-8">
           {!submitted ? (
             <>
-              <h3 className="font-display text-2xl font-bold text-[#0d1c32] tracking-tight mb-2">
+              <h3 className="font-display text-2xl font-bold text-[#161310] tracking-tight mb-2">
                 {title}
               </h3>
               {subtitle && (
@@ -84,12 +84,12 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
               )}
 
               {contextData && (
-                <div className="mb-6 p-4 bg-slate-50 border-l-4 border-[#0d1c32] rounded-sm font-sans">
+                <div className="mb-6 p-4 bg-slate-50 border-l-4 border-[#161310] rounded-sm font-sans">
                   <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                     Contexte de la demande
                   </span>
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold text-[#0d1c32] text-sm md:text-base">
+                    <span className="font-semibold text-[#161310] text-sm md:text-base">
                       {contextData.productName || contextData.serviceTitle || contextData.eventTitle}
                     </span>
                     <span className="font-bold text-[#705d00] text-sm">
@@ -110,7 +110,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Ex: Sébastien Malonga"
-                    className="w-full px-4 py-3 bg-white border border-[#c5c6cd] text-slate-900 rounded-sm outline-none focus:border-[#0d1c32] focus:ring-1 focus:ring-[#0d1c32] transition-colors text-sm"
+                    className="w-full px-4 py-3 bg-white border border-[#c5c6cd] text-slate-900 rounded-sm outline-none focus:border-[#161310] focus:ring-1 focus:ring-[#161310] transition-colors text-sm"
                   />
                 </div>
 
@@ -125,7 +125,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+242 06 644 6257"
-                      className="w-full px-4 py-3 bg-white border border-[#c5c6cd] text-slate-900 rounded-sm outline-none focus:border-[#0d1c32] focus:ring-1 focus:ring-[#0d1c32] transition-colors text-sm"
+                      className="w-full px-4 py-3 bg-white border border-[#c5c6cd] text-slate-900 rounded-sm outline-none focus:border-[#161310] focus:ring-1 focus:ring-[#161310] transition-colors text-sm"
                     />
                   </div>
                   <div>
@@ -137,7 +137,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="nom@exemple.com"
-                      className="w-full px-4 py-3 bg-white border border-[#c5c6cd] text-slate-900 rounded-sm outline-none focus:border-[#0d1c32] focus:ring-1 focus:ring-[#0d1c32] transition-colors text-sm"
+                      className="w-full px-4 py-3 bg-white border border-[#c5c6cd] text-slate-900 rounded-sm outline-none focus:border-[#161310] focus:ring-1 focus:ring-[#161310] transition-colors text-sm"
                     />
                   </div>
                 </div>
@@ -151,13 +151,13 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
                     value={details}
                     onChange={(e) => setDetails(e.target.value)}
                     placeholder={type === 'quote' ? 'Spécifiez vos dates, nombre d\'invités, etc.' : 'Ex: Livraison à domicile, heure favorite de rappel...'}
-                    className="w-full px-4 py-3 bg-white border border-[#c5c6cd] text-slate-900 rounded-sm outline-none focus:border-[#0d1c32] focus:ring-1 focus:ring-[#0d1c32] transition-colors text-sm resize-none"
+                    className="w-full px-4 py-3 bg-white border border-[#c5c6cd] text-slate-900 rounded-sm outline-none focus:border-[#161310] focus:ring-1 focus:ring-[#161310] transition-colors text-sm resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-[#fcd400] hover:bg-[#ffe16d] text-[#111c2d] py-3.5 px-6 rounded-sm font-bold tracking-wide uppercase transition-all duration-200 active:scale-95 cursor-pointer text-sm"
+                  className="w-full flex items-center justify-center gap-2 bg-[#f0c420] hover:bg-[#ffe16d] text-[#0b0907] py-3.5 px-6 rounded-sm font-bold tracking-wide uppercase transition-all duration-200 active:scale-95 cursor-pointer text-sm"
                   id="submit-modal-form"
                 >
                   <Send className="w-4 h-4" />
@@ -171,7 +171,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
                 <CheckCircle className="w-10 h-10" />
               </div>
               <div>
-                <h3 className="font-display text-2xl font-bold text-[#0d1c32] tracking-tight mb-2">
+                <h3 className="font-display text-2xl font-bold text-[#161310] tracking-tight mb-2">
                   Demande Prête !
                 </h3>
                 <p className="text-sm text-slate-500 max-w-sm mx-auto">
@@ -192,7 +192,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
                 </a>
                 <a
                   href="tel:+242066446257"
-                  className="flex items-center justify-center gap-3 bg-[#0d1c32] hover:bg-[#39475f] text-white py-3.5 px-6 rounded-sm font-bold uppercase transition-all active:scale-95 text-sm"
+                  className="flex items-center justify-center gap-3 bg-[#161310] hover:bg-[#38322a] text-white py-3.5 px-6 rounded-sm font-bold uppercase transition-all active:scale-95 text-sm"
                   id="call-direct-btn"
                 >
                   <Phone className="w-5 h-5" />

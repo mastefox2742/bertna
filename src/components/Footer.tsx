@@ -7,14 +7,14 @@ interface FooterProps {
 
 export default function Footer({ onTabChange }: FooterProps) {
   return (
-    <footer className="w-full py-16 px-4 md:px-16 bg-[#0d1c32] text-white border-t border-slate-800 font-sans">
+    <footer className="w-full py-16 px-4 md:px-16 bg-[#161310] text-white border-t border-slate-800 font-sans">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* About Section */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => onTabChange('agence')}>
             <LogoMark size={40} inverted={true} />
             <span className="font-display font-black text-2xl tracking-tighter text-white uppercase">
-              BERT<span className="text-[#fcd400]">NA48</span>
+              BERT<span className="text-[#f0c420]">NA48</span>
             </span>
           </div>
           <p className="text-sm text-slate-300 max-w-sm leading-relaxed">

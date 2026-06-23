@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BERTNA48 — L'intelligence au service de vos résultats</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { gold: '#D4AF37', 'gold-light': '#F0D060', 'gold-dark': '#A88B20' }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Inter', system-ui, sans-serif; }
+    .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F0D060 50%, #A88B20 100%); }
+    .text-gold-gradient { background: linear-gradient(135deg, #D4AF37, #F0D060); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(212,175,55,0.12); }
+    .nav-link { position: relative; transition: color 0.2s; }
+    .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#D4AF37; transition:width 0.3s; }
+    .nav-link:hover::after, .nav-link.active::after { width:100%; }
+    html { scroll-behavior: smooth; }
+    .hero-bg { background: radial-gradient(ellipse at 15% 60%, rgba(212,175,55,0.07) 0%, transparent 55%), radial-gradient(ellipse at 85% 15%, rgba(212,175,55,0.04) 0%, transparent 50%), #080810; }
+    .section-divider { border:none; height:1px; background: linear-gradient(to right, transparent, rgba(212,175,55,0.4), transparent); margin: 0 4rem; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+    .animate-fade-up { animation: fadeUp 0.7s ease forwards; opacity:0; }
+    .delay-1 { animation-delay: 0.15s; } .delay-2 { animation-delay: 0.3s; } .delay-3 { animation-delay: 0.45s; }
+    .glow-dot { animation: pulse-glow 2s infinite; }
+    @keyframes pulse-glow { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(212,175,55,0.4);} 50%{opacity:.8;box-shadow:0 0 0 6px rgba(212,175,55,0);} }
+  </style>
+</head>
+<body class="bg-[#080810] text-white antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5" style="background:rgba(8,8,16,0.9);backdrop-filter:blur(24px)">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+      <a href="index.html" class="text-xl font-black tracking-tight">BERT<span class="text-gold">NA48</span></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link active text-sm font-medium text-gold">Accueil</a>
+        <a href="services.html" class="nav-link text-sm font-medium text-white/55 hover:text-white">Services</a>
+        <a href="evenementiel.html" class="nav-link text-sm font-medium text-white/55 hover:text-white">Événementiel</a>
+        <a href="boutique.html" class="nav-link text-sm font-medium text-white/55 hover:text-white">Boutique</a>
+        <a href="contact.html" class="nav-link text-sm font-medium text-white/55 hover:text-white">Contact</a>
+      </div>
+      <a href="contact.html" class="hidden md:inline-flex items-center gap-2 px-5 py-2 gold-gradient text-black text-sm font-bold rounded-lg hover:opacity-90 transition-opacity">
+        Devis gratuit
+      </a>
+      <button onclick="document.getElementById('mob').classList.toggle('hidden')" class="md:hidden text-white/60 hover:text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mob" class="hidden md:hidden border-t border-white/5 px-6 py-4 space-y-3 bg-[#080810]">
+      <a href="index.html" class="block text-sm font-semibold text-gold">Accueil</a>
+      <a href="services.html" class="block text-sm text-white/60">Services</a>
+      <a href="evenementiel.html" class="block text-sm text-white/60">Événementiel</a>
+      <a href="boutique.html" class="block text-sm text-white/60">Boutique</a>
+      <a href="contact.html" class="block text-sm text-white/60">Contact</a>
+      <a href="contact.html" class="block w-full text-center py-2 gold-gradient text-black font-bold rounded-lg">Devis gratuit</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg min-h-screen flex items-center pt-16">
+    <div class="max-w-7xl mx-auto px-6 py-28 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8 animate-fade-up">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-gold/25 rounded-full text-gold text-xs font-semibold tracking-widest uppercase">
+          <span class="w-2 h-2 bg-gold rounded-full glow-dot"></span>
+          Disponible 24/7
+        </div>
+        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight">
+          L'intelligence<br />
+          <span class="text-gold-gradient">au service</span><br />
+          de vos résultats.
+        </h1>
+        <p class="text-white/45 text-lg leading-relaxed max-w-lg">
+          BERTNA48 est votre partenaire stratégique pour la communication, l'événementiel et la croissance commerciale. Moins de discours — plus de résultats.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="services.html" class="inline-flex items-center gap-2 px-6 py-3 gold-gradient text-black font-bold rounded-xl hover:opacity-90 transition-opacity">
+            Découvrir nos services
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="https://wa.me/242066446257" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 border border-white/15 text-white font-semibold rounded-xl hover:border-gold/40 hover:bg-gold/5 transition-all">
+            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.136.563 4.14 1.537 5.878L.057 23.8a.75.75 0 00.92.92l5.922-1.48A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.497-5.201-1.364l-.373-.217-3.867.967.982-3.772-.237-.389A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            WhatsApp Direct
+          </a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 animate-fade-up delay-2">
+        <div class="bg-white/4 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-5xl font-black text-gold mb-2">24/7</div>
+          <div class="text-white/40 text-sm font-medium">Disponibilité totale</div>
+        </div>
+        <div class="bg-white/4 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-5xl font-black text-gold mb-2">4</div>
+          <div class="text-white/40 text-sm font-medium">Pôles d'expertise</div>
+        </div>
+        <div class="bg-white/4 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-5xl font-black text-gold mb-2">100%</div>
+          <div class="text-white/40 text-sm font-medium">Sur-mesure</div>
+        </div>
+        <div class="bg-gold/8 border border-gold/25 rounded-2xl p-6 card-hover">
+          <div class="text-5xl font-black text-gold mb-2">ROI</div>
+          <div class="text-white/40 text-sm font-medium">Rentabilité garantie</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="py-24 bg-[#0c0c16]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-gold text-xs font-bold tracking-widest uppercase mb-3">Ce que nous faisons</p>
+        <h2 class="text-4xl font-black">Nos 4 pôles d'expertise</h2>
+        <p class="text-white/35 mt-4 max-w-xl mx-auto">Une offre complète pour accompagner votre croissance à chaque étape.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <a href="services.html#rp" class="group bg-white/3 border border-white/8 rounded-2xl p-7 card-hover hover:border-gold/30 block">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Relation Publique</h3>
+          <p class="text-white/35 text-sm leading-relaxed">Développement pro, recherche de clients ciblés, conseil stratégique et représentation de marque.</p>
+          <div class="mt-5 flex items-center gap-1 text-gold text-sm font-semibold">En savoir plus <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+        </a>
+        <a href="evenementiel.html" class="group bg-white/3 border border-white/8 rounded-2xl p-7 card-hover hover:border-gold/30 block">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Événementiel</h3>
+          <p class="text-white/35 text-sm leading-relaxed">Organisation de A à Z, décoration et coordination — mariages, anniversaires, séminaires, galas.</p>
+          <div class="mt-5 flex items-center gap-1 text-gold text-sm font-semibold">Voir les tarifs <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+        </a>
+        <a href="services.html#commercial" class="group bg-white/3 border border-white/8 rounded-2xl p-7 card-hover hover:border-gold/30 block">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Gestion Commerciale</h3>
+          <p class="text-white/35 text-sm leading-relaxed">Stratégies sur-mesure, suivi clientèle, fidélisation et optimisation des ventes pour booster votre CA.</p>
+          <div class="mt-5 flex items-center gap-1 text-gold text-sm font-semibold">En savoir plus <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+        </a>
+        <a href="services.html#whatsapp" class="group bg-white/3 border border-white/8 rounded-2xl p-7 card-hover hover:border-gold/30 block">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
+            <svg class="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.136.563 4.14 1.537 5.878L.057 23.8a.75.75 0 00.92.92l5.922-1.48A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.497-5.201-1.364l-.373-.217-3.867.967.982-3.772-.237-.389A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">WhatsApp Business</h3>
+          <p class="text-white/35 text-sm leading-relaxed">Service client externalisé : tri, organisation des messages et réponses rapides professionnelles.</p>
+          <div class="mt-5 flex items-center gap-1 text-gold text-sm font-semibold">En savoir plus <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- WHY US -->
+  <section class="py-24 bg-[#080810]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <p class="text-gold text-xs font-bold tracking-widest uppercase mb-4">Pourquoi nous choisir</p>
+          <h2 class="text-4xl lg:text-5xl font-black leading-tight mb-6">Rapide. Efficace.<br /><span class="text-gold-gradient">Rentable.</span></h2>
+          <p class="text-white/40 leading-relaxed mb-10">Nous ne vendons pas des promesses. Nous livrons des résultats mesurables, adaptés à votre réalité, dans les meilleurs délais.</p>
+          <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 border border-gold/35 text-gold font-semibold rounded-xl hover:bg-gold/8 transition-colors">
+            Travaillons ensemble →
+          </a>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-start gap-4 bg-white/3 border border-white/6 rounded-xl p-5 hover:border-gold/20 transition-colors">
+            <div class="w-9 h-9 rounded-lg gold-gradient flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">Disponibilité 24/7</h4>
+              <p class="text-white/35 text-sm leading-relaxed">Une assistance continue, sans interruption, pour que vos projets n'attendent jamais.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 bg-white/3 border border-white/6 rounded-xl p-5 hover:border-gold/20 transition-colors">
+            <div class="w-9 h-9 rounded-lg gold-gradient flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">Réseau Étendu</h4>
+              <p class="text-white/35 text-sm leading-relaxed">Des partenaires stratégiques pour débloquer des opportunités inaccessibles seul.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 bg-white/3 border border-white/6 rounded-xl p-5 hover:border-gold/20 transition-colors">
+            <div class="w-9 h-9 rounded-lg gold-gradient flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">Approche Sur-Mesure</h4>
+              <p class="text-white/35 text-sm leading-relaxed">Chaque solution est taillée pour votre profil — aucun copier-coller, jamais.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 bg-white/3 border border-white/6 rounded-xl p-5 hover:border-gold/20 transition-colors">
+            <div class="w-9 h-9 rounded-lg gold-gradient flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">Flexibilité Totale</h4>
+              <p class="text-white/35 text-sm leading-relaxed">Adaptation rapide aux imprévus — nous gérons les aléas à votre place.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 bg-white/3 border border-white/6 rounded-xl p-5 hover:border-gold/20 transition-colors">
+            <div class="w-9 h-9 rounded-lg gold-gradient flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">Rentabilité Optimisée</h4>
+              <p class="text-white/35 text-sm leading-relaxed">Un excellent rapport qualité-prix pour garantir un bon retour sur investissement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="gold-gradient py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-black text-black mb-4">Prêt à booster vos résultats ?</h2>
+      <p class="text-black/55 text-lg mb-8">Contactez-nous pour un devis gratuit et personnalisé. Réponse rapide garantie.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="contact.html" class="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-black/80 transition-colors">Demander un devis</a>
+        <a href="https://wa.me/242066446257" target="_blank" class="px-8 py-3 bg-white/25 text-black font-bold rounded-xl hover:bg-white/35 transition-colors">WhatsApp direct</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOUTIQUE TEASER -->
+  <section class="py-24 bg-[#0c0c16]">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-gold text-xs font-bold tracking-widest uppercase mb-3">Notre boutique</p>
+      <h2 class="text-4xl font-black mb-4">Produits Premium</h2>
+      <p class="text-white/35 mb-12 max-w-xl mx-auto">Vêtements, accessoires, électronique et cosmétiques sélectionnés avec soin.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-8 card-hover cursor-pointer" onclick="location.href='boutique.html'">
+          <div class="text-4xl mb-3">👗</div>
+          <div class="font-bold text-sm">Vêtements</div>
+          <div class="text-white/30 text-xs mt-1">Luxe & style</div>
+        </div>
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-8 card-hover cursor-pointer" onclick="location.href='boutique.html'">
+          <div class="text-4xl mb-3">⌚</div>
+          <div class="font-bold text-sm">Accessoires</div>
+          <div class="text-white/30 text-xs mt-1">Montres, sacs</div>
+        </div>
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-8 card-hover cursor-pointer" onclick="location.href='boutique.html'">
+          <div class="text-4xl mb-3">📱</div>
+          <div class="font-bold text-sm">Électronique</div>
+          <div class="text-white/30 text-xs mt-1">High-tech premium</div>
+        </div>
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-8 card-hover cursor-pointer" onclick="location.href='boutique.html'">
+          <div class="text-4xl mb-3">✨</div>
+          <div class="font-bold text-sm">Cosmétiques</div>
+          <div class="text-white/30 text-xs mt-1">Parfums & soins</div>
+        </div>
+      </div>
+      <a href="boutique.html" class="inline-flex items-center gap-2 px-8 py-3 gold-gradient text-black font-bold rounded-xl hover:opacity-90 transition-opacity">
+        Explorer la boutique
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black border-t border-white/5 py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div class="md:col-span-2">
+          <div class="text-2xl font-black mb-3">BERT<span class="text-gold">NA48</span></div>
+          <p class="text-white/25 text-sm leading-relaxed max-w-xs">L'intelligence au service de vos résultats. Agence de services, communication et accompagnement commercial.</p>
+          <div class="flex gap-3 mt-5">
+            <a href="https://wa.me/242066446257" target="_blank" class="w-9 h-9 border border-white/10 rounded-lg flex items-center justify-center hover:border-gold/40 hover:bg-gold/8 transition-all">
+              <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.136.563 4.14 1.537 5.878L.057 23.8a.75.75 0 00.92.92l5.922-1.48A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.497-5.201-1.364l-.373-.217-3.867.967.982-3.772-.237-.389A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            </a>
+            <a href="mailto:bertnajh@gmail.com" class="w-9 h-9 border border-white/10 rounded-lg flex items-center justify-center hover:border-gold/40 hover:bg-gold/8 transition-all">
+              <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-white/50 mb-4">Navigation</h5>
+          <div class="space-y-2.5">
+            <a href="services.html" class="block text-sm text-white/35 hover:text-gold transition-colors">Services</a>
+            <a href="evenementiel.html" class="block text-sm text-white/35 hover:text-gold transition-colors">Événementiel</a>
+            <a href="boutique.html" class="block text-sm text-white/35 hover:text-gold transition-colors">Boutique</a>
+            <a href="contact.html" class="block text-sm text-white/35 hover:text-gold transition-colors">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-white/50 mb-4">Contact</h5>
+          <div class="space-y-2.5">
+            <a href="https://wa.me/242066446257" target="_blank" class="block text-sm text-white/35 hover:text-gold transition-colors">+242 06 644 62 57</a>
+            <a href="mailto:bertnajh@gmail.com" class="block text-sm text-white/35 hover:text-gold transition-colors">bertnajh@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+        <p class="text-white/15 text-xs">© 2025 BERTNA48. Tous droits réservés.</p>
+        <p class="text-white/15 text-xs italic">Rapide · Efficace · Rentable</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
