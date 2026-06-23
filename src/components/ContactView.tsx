@@ -1,8 +1,9 @@
 import { useState, FormEvent } from 'react';
 import { Mail, Phone, Clock, Send, MessageSquare, ShieldCheck, CheckCircle } from 'lucide-react';
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_WHATSAPP_NUMBER } from '../data';
+import { useContent } from '../content/ContentProvider';
 
 export default function ContactView() {
+  const { settings } = useContent();
   const [subject, setSubject] = useState('Prise de Contact');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -23,7 +24,7 @@ export default function ContactView() {
     text += `Merci de revenir vers moi à votre meilleure convenance.`;
 
     const encoded = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/242066446257?text=${encoded}`;
+    const whatsappUrl = `https://wa.me/${settings.whatsapp}?text=${encoded}`;
     
     // Open in separate window
     window.open(whatsappUrl, '_blank');
@@ -58,7 +59,7 @@ export default function ContactView() {
 
             <div className="space-y-6">
               <a 
-                href="https://wa.me/242066446257"
+                href={`https://wa.me/${settings.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-start gap-4 p-4 bg-white border border-slate-100 hover:border-[#f0c420] transition-colors rounded-sm group"
@@ -69,12 +70,12 @@ export default function ContactView() {
                 <div>
                   <h4 className="font-bold text-[#161310] text-sm">WhatsApp Business</h4>
                   <p className="text-xs text-slate-500 mt-0.5">Réponse garantie en moins de 5 minutes</p>
-                  <p className="font-mono text-sm text-[#705d00] font-bold mt-2">+242 06 644  62 57</p>
+                  <p className="font-mono text-sm text-[#705d00] font-bold mt-2">{settings.phone}</p>
                 </div>
               </a>
 
               <a 
-                href="tel:+242066446257"
+                href={`tel:+${settings.whatsapp}`}
                 className="flex items-start gap-4 p-4 bg-white border border-slate-100 hover:border-[#f0c420] transition-colors rounded-sm group"
               >
                 <div className="p-3 bg-red-50 text-red-600 rounded-sm shrink-0 group-hover:bg-red-500 group-hover:text-white transition-colors">
@@ -83,12 +84,12 @@ export default function ContactView() {
                 <div>
                   <h4 className="font-bold text-[#161310] text-sm">Ligne Téléphonique Directe</h4>
                   <p className="text-xs text-slate-500 mt-0.5">Appels vocaux et consultations d'urgence</p>
-                  <p className="font-mono text-sm text-[#161310] font-bold mt-2">+242 06 644  62 57</p>
+                  <p className="font-mono text-sm text-[#161310] font-bold mt-2">{settings.phone}</p>
                 </div>
               </a>
 
               <a 
-                href="mailto:bertnajh@gmail.com"
+                href={`mailto:${settings.email}`}
                 className="flex items-start gap-4 p-4 bg-white border border-slate-100 hover:border-[#f0c420] transition-colors rounded-sm group"
               >
                 <div className="p-3 bg-indigo-50 text-indigo-600 rounded-sm shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
@@ -97,7 +98,7 @@ export default function ContactView() {
                 <div>
                   <h4 className="font-bold text-[#161310] text-sm">Courregistre Électronique (Mail)</h4>
                   <p className="text-xs text-slate-500 mt-0.5">Dossiers institutionnels, brochures &amp; devis volumineux</p>
-                  <p className="font-mono text-sm text-[#161310] font-bold mt-2">bertnajh@gmail.com</p>
+                  <p className="font-mono text-sm text-[#161310] font-bold mt-2">{settings.email}</p>
                 </div>
               </a>
             </div>

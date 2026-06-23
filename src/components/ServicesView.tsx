@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Users, Gift, TrendingUp, MessageSquare, Check, Phone, ArrowDown, HelpCircle, Sparkles, FileText } from 'lucide-react';
-import { OFFICE_BACKGROUND_URL, SERVICE_POLES } from '../data';
+import { OFFICE_BACKGROUND_URL } from '../data';
 import TarifsView from './TarifsView';
+import { useContent } from '../content/ContentProvider';
 
 interface ServicesViewProps {
   onOpenRequest: (title: string, price?: string, type?: 'order' | 'quote' | 'appointment') => void;
 }
 
 export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
+  const { poles, settings } = useContent();
   // Sub-tab state within services: 'poles' (solutions 360) vs 'tarifs' (event pricing)
   const [subTab, setSubTab] = useState<'poles' | 'tarifs'>('poles');
 
@@ -111,7 +113,7 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {SERVICE_POLES.map((pole) => {
+              {poles.map((pole) => {
                 const Icon = getIcon(pole.iconName);
                 return (
                   <div
@@ -178,7 +180,7 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
                   Planifier un rendez-vous
                 </button>
                 <a
-                  href={`https://wa.me/242066446257?text=${encodeURIComponent("Bonjour BERTNA48, je souhaite obtenir de plus amples informations concernant vos brochures de services d'excellence.")}`}
+                  href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent("Bonjour BERTNA48, je souhaite obtenir de plus amples informations concernant vos brochures de services d'excellence.")}`}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center border border-slate-500 text-white hover:bg-white/10 px-10 py-4 font-sans font-bold text-xs uppercase tracking-wider rounded-sm transition-all cursor-pointer"

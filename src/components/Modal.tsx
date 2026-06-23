@@ -1,5 +1,6 @@
 import { X, CheckCircle, Send, MessageSquare, Phone } from 'lucide-react';
 import { useState, FormEvent } from 'react';
+import { useContent } from '../content/ContentProvider';
 
 interface ModalProps {
   isOpen: boolean;
@@ -17,6 +18,7 @@ interface ModalProps {
 }
 
 export default function Modal({ isOpen, onClose, title, subtitle, type, contextData }: ModalProps) {
+  const { settings } = useContent();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -51,7 +53,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
     message += `\nMerci de me recontacter pour finaliser notre collaboration.`;
 
     const encodedMessage = encodeURIComponent(message);
-    const url = `https://wa.me/242066446257?text=${encodedMessage}`;
+    const url = `https://wa.me/${settings.whatsapp}?text=${encodedMessage}`;
     setWhatsappUrl(url);
     setSubmitted(true);
   };
@@ -191,7 +193,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, type, contextD
                   Ouvrir WhatsApp Business
                 </a>
                 <a
-                  href="tel:+242066446257"
+                  href={`tel:+${settings.whatsapp}`}
                   className="flex items-center justify-center gap-3 bg-[#161310] hover:bg-[#38322a] text-white py-3.5 px-6 rounded-sm font-bold uppercase transition-all active:scale-95 text-sm"
                   id="call-direct-btn"
                 >

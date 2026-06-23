@@ -1,11 +1,13 @@
 import { Mail, Phone, Globe, Shield } from 'lucide-react';
 import LogoMark from './LogoMark';
+import { useContent } from '../content/ContentProvider';
 
 interface FooterProps {
   onTabChange: (tab: string) => void;
 }
 
 export default function Footer({ onTabChange }: FooterProps) {
+  const { settings } = useContent();
   return (
     <footer className="w-full py-16 px-4 md:px-16 bg-[#161310] text-white border-t border-slate-800 font-sans">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -22,7 +24,7 @@ export default function Footer({ onTabChange }: FooterProps) {
           </p>
           <div className="flex gap-4">
             <a
-              href="https://wa.me/242066446257"
+              href={`https://wa.me/${settings.whatsapp}`}
               target="_blank"
               rel="noreferrer"
               className="w-10 h-10 rounded-sm bg-slate-800 hover:bg-[#705d00] transition-colors flex items-center justify-center text-white"
@@ -30,13 +32,13 @@ export default function Footer({ onTabChange }: FooterProps) {
               <Globe className="w-5 h-5" />
             </a>
             <a
-              href="mailto:bertnajh@gmail.com"
+              href={`mailto:${settings.email}`}
               className="w-10 h-10 rounded-sm bg-slate-800 hover:bg-[#705d00] transition-colors flex items-center justify-center text-white"
             >
               <Mail className="w-5 h-5" />
             </a>
             <a
-              href="tel:+242066446257"
+              href={`tel:+${settings.whatsapp}`}
               className="w-10 h-10 rounded-sm bg-slate-800 hover:bg-[#705d00] transition-colors flex items-center justify-center text-white"
             >
               <Phone className="w-5 h-5" />
@@ -100,8 +102,8 @@ export default function Footer({ onTabChange }: FooterProps) {
             <span className="block text-xs font-bold text-[#ffe16d] uppercase tracking-widest mb-3">
               Contact Agence
             </span>
-            <p className="text-sm text-slate-300 font-mono">bertnajh@gmail.com</p>
-            <p className="text-sm text-slate-300 font-mono mt-1">+242 06 644 62 57</p>
+            <p className="text-sm text-slate-300 font-mono">{settings.email}</p>
+            <p className="text-sm text-slate-300 font-mono mt-1">{settings.phone}</p>
           </div>
 
           <div className="pt-6 border-t border-slate-800">

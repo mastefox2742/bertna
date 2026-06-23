@@ -1,5 +1,6 @@
 import { Menu, X, ShoppingBag, Briefcase, Sparkles, MessageSquare, Phone } from 'lucide-react';
 import LogoMark from './LogoMark';
+import { useContent } from '../content/ContentProvider';
 
 interface NavbarProps {
   currentTab: string;
@@ -8,6 +9,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ currentTab, onTabChange, onOpenSchedule }: NavbarProps) {
+  const { settings } = useContent();
   const tabs = [
     { id: 'agence', label: 'Agence', icon: Briefcase },
     { id: 'boutique', label: 'Boutique', icon: ShoppingBag },
@@ -133,17 +135,17 @@ export default function Navbar({ currentTab, onTabChange, onOpenSchedule }: Navb
               Assistance Immédiate
             </p>
             <a
-              href="mailto:bertnajh@gmail.com"
+              href={`mailto:${settings.email}`}
               className="flex items-center gap-3 text-sm text-slate-600 hover:text-[#705d00]"
             >
-              <span className="font-mono text-xs">bertnajh@gmail.com</span>
+              <span className="font-mono text-xs">{settings.email}</span>
             </a>
             <a
-              href="tel:+242066446257"
+              href={`tel:+${settings.whatsapp}`}
               className="flex items-center gap-3 text-sm text-[#161310] font-bold"
             >
               <Phone className="w-4 h-4 text-[#705d00]" />
-              <span>+242 06 644 62 57</span>
+              <span>{settings.phone}</span>
             </a>
           </div>
         </div>

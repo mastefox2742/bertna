@@ -1,5 +1,6 @@
 import { Heart, Cake, Briefcase, Sparkles, HelpCircle, Phone, ArrowUpRight, HelpCircle as HelpIcon, FileText } from 'lucide-react';
 import { FIXED_PRICE_EVENTS } from '../data';
+import { useContent } from '../content/ContentProvider';
 
 interface TarifsViewProps {
   onOpenRequest: (title: string, price?: string, type?: 'order' | 'quote' | 'appointment') => void;
@@ -22,10 +23,14 @@ export default function TarifsView({ onOpenRequest }: TarifsViewProps) {
     }
   };
 
-  const weddingEvent = FIXED_PRICE_EVENTS.find(e => e.id === 'event-mariage')!;
-  const birthdayEvent = FIXED_PRICE_EVENTS.find(e => e.id === 'event-anniv')!;
-  const professionalEvent = FIXED_PRICE_EVENTS.find(e => e.id === 'event-prof')!;
-  const galaEvent = FIXED_PRICE_EVENTS.find(e => e.id === 'event-gala')!;
+  const { events, settings } = useContent();
+  const findEvent = (id: string) =>
+    events.find((e) => e.id === id) || FIXED_PRICE_EVENTS.find((e) => e.id === id)!;
+
+  const weddingEvent = findEvent('event-mariage');
+  const birthdayEvent = findEvent('event-anniv');
+  const professionalEvent = findEvent('event-prof');
+  const galaEvent = findEvent('event-gala');
 
   return (
     <div className="font-sans text-slate-800 antialiased overflow-hidden py-12">
@@ -182,12 +187,12 @@ export default function TarifsView({ onOpenRequest }: TarifsViewProps) {
             </p>
             <div className="pt-4 flex justify-center">
               <a 
-                href="tel:+242066446257" 
+                href={`tel:+${settings.whatsapp}`}
                 className="inline-flex items-center gap-3 text-lg sm:text-xl font-bold text-[#161310] hover:text-[#705d00] transition-colors"
                 id="tarifs-phone-link"
               >
                 <Phone className="w-5 h-5 text-[#705d00]" />
-                +242 06 644  62 57
+                {settings.phone}
               </a>
             </div>
           </div>

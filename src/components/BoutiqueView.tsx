@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Search, MessageSquare, Phone, Sparkles, Filter, ChevronRight, X, ArrowUpRight, HelpCircle } from 'lucide-react';
-import { PRODUCTS, HANDBAGS_PEDESTAL_URL } from '../data';
+import { HANDBAGS_PEDESTAL_URL } from '../data';
 import { Product } from '../types';
+import { useContent } from '../content/ContentProvider';
 
 interface BoutiqueViewProps {
   onTabChange: (tab: string) => void;
@@ -9,6 +10,7 @@ interface BoutiqueViewProps {
 }
 
 export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueViewProps) {
+  const { products } = useContent();
   const [selectedCategory, setSelectedCategory] = useState<string>('Tout');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -17,7 +19,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
 
   // Filter products based on category and search query
   const filteredProducts = useMemo(() => {
-    return PRODUCTS.filter((product) => {
+    return products.filter((product) => {
       const matchesCategory =
         selectedCategory === 'Tout' || product.category === selectedCategory;
       const matchesSearch =
@@ -26,7 +28,7 @@ export default function BoutiqueView({ onTabChange, onOpenRequest }: BoutiqueVie
         product.category.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [products, selectedCategory, searchQuery]);
 
   return (
     <div className="font-sans text-slate-800 antialiased overflow-hidden">
