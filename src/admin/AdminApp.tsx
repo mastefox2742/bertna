@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { ShoppingBag, Sparkles, CalendarDays, Phone, LogOut, ExternalLink, Lock } from 'lucide-react';
+import { ShoppingBag, Sparkles, CalendarDays, Phone, LogOut, ArrowLeft, Lock } from 'lucide-react';
 import { isAuthenticated, login, logout } from './auth';
 import LogoMark from '../components/LogoMark';
 import { Button, Input, Field, Card } from './ui';
@@ -73,14 +73,12 @@ export default function AdminApp() {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <a
-            href="/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-sm hover:bg-white/10 transition-colors"
+          <button
+            onClick={() => { window.location.hash = 'agence'; }}
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-sm bg-[#f0c420] text-[#161310] hover:bg-[#ffe16d] transition-colors"
           >
-            <ExternalLink className="w-4 h-4" /> <span className="hidden sm:inline">Voir le site</span>
-          </a>
+            <ArrowLeft className="w-4 h-4" /> <span className="hidden sm:inline">Retour au site</span>
+          </button>
           <button
             onClick={() => { logout(); setAuthed(false); }}
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-sm bg-white/10 hover:bg-white/20 transition-colors"

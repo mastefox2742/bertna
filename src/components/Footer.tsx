@@ -1,4 +1,4 @@
-import { Mail, Phone, Globe, Shield } from 'lucide-react';
+import { Mail, Phone, Globe, Shield, Lock } from 'lucide-react';
 import LogoMark from './LogoMark';
 import { useContent } from '../content/ContentProvider';
 
@@ -114,6 +114,12 @@ export default function Footer({ onTabChange }: FooterProps) {
             <p className="text-xs text-slate-400 mt-2">
               © {new Date().getFullYear()} BERTNA48. Tous droits réservés.
             </p>
+            <button
+              onClick={() => { window.location.hash = 'admin'; }}
+              className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 hover:text-[#f0c420] mt-3 transition-colors cursor-pointer"
+            >
+              <Lock className="w-3 h-3" /> Espace Admin
+            </button>
           </div>
         </div>
       </div>
