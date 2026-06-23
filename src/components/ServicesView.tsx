@@ -34,11 +34,11 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
   return (
     <div className="font-sans text-slate-800 antialiased overflow-hidden">
       {/* 1. Header Sub-navigation for Services Tabs */}
-      <nav className="fixed top-20 left-0 w-full z-30 bg-white border-b border-slate-200 shadow-sm overflow-x-auto whitespace-nowrap">
-        <div className="flex gap-8 justify-center max-w-7xl mx-auto px-4">
+      <nav className="fixed top-20 left-0 w-full z-30 bg-white border-b border-slate-200 shadow-sm overflow-x-auto whitespace-nowrap [-webkit-overflow-scrolling:touch]">
+        <div className="flex gap-3 sm:gap-8 justify-start md:justify-center max-w-7xl mx-auto px-4">
           <button
             onClick={() => setSubTab('poles')}
-            className={`font-sans font-bold text-xs uppercase tracking-widest py-4 px-4 transition-all duration-200 cursor-pointer relative ${
+            className={`shrink-0 font-sans font-bold text-[11px] sm:text-xs uppercase tracking-wide sm:tracking-widest py-4 px-2 sm:px-4 transition-all duration-200 cursor-pointer relative ${
               subTab === 'poles'
                 ? 'text-[#705d00] font-black'
                 : 'text-slate-500 hover:text-[#705d00]'
@@ -51,7 +51,7 @@ export default function ServicesView({ onOpenRequest }: ServicesViewProps) {
           </button>
           <button
             onClick={() => setSubTab('tarifs')}
-            className={`font-sans font-bold text-xs uppercase tracking-widest py-4 px-4 transition-all duration-200 cursor-pointer relative ${
+            className={`shrink-0 font-sans font-bold text-[11px] sm:text-xs uppercase tracking-wide sm:tracking-widest py-4 px-2 sm:px-4 transition-all duration-200 cursor-pointer relative ${
               subTab === 'tarifs'
                 ? 'text-[#705d00] font-black'
                 : 'text-slate-500 hover:text-[#705d00]'
